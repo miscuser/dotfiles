@@ -11,8 +11,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " My bundles
 Plugin 'Lokaltog/vim-easymotion'   " EasyMotion
-Bundle 'scrooloose/nerdtree'       " NerdTree
-Bundle 'tpope/vim-surround'        " Surround
+Plugin 'scrooloose/nerdtree'       " NerdTree
+Plugin 'tpope/vim-surround'        " Surround
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
