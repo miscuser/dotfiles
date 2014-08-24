@@ -1,4 +1,4 @@
-" FJ vimrc
+" Misc. vimrc
 "
 """""""""""""""""" Vundle """""""""""""""""""""""""""""""""
 " set the runtime path to include Vundle and initialize
