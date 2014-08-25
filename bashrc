@@ -201,3 +201,6 @@
 HISTIGNORE="&:ls:[bf]g:exit"
 shopt -s histverify
 EDITOR=vim   # Set the default editor to vim
+alias lf="ls -l | egrep -v '^d'"
+alias ldir="ls -l | egrep '^d'"
+
