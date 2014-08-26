@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 " My bundles
 Plugin 'Lokaltog/vim-easymotion'   " EasyMotion
 Plugin 'scrooloose/nerdtree'       " NerdTree
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'        " Surround
 
 " All of your Plugins must be added before the following line
@@ -123,7 +124,7 @@ au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for mar
 
 """"""""""""""" Vim-LaTeX settings """"""""""""""""""""""""""""
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-" filetype plugin on
+filetype plugin on
 
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
 " can be called correctly.
