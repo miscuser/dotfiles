@@ -96,7 +96,10 @@ set formatoptions+=l          " this coupled with the next one avoid line wraps 
 set lbr                       " with line above avoids the line break problems I was seeing
 set nofoldenable              " don't fold by default
 set cursorline                " underline the current line
-colors murphy                 " set the color scheme to something I like
+"colors murphy                 " set the color scheme to something I like
+syntax enable                 " testing out solarized
+set background=dark           " testing out solarized
+colorscheme solarized         " testing out solarized
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
 syntax on                     " turn on syntax coloring
 au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
