@@ -7,15 +7,12 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-" My bundles
+" Bundles
+Plugin 'gmarik/Vundle.vim'         " Let Vundle manage Vundle
 Plugin 'Lokaltog/vim-easymotion'   " EasyMotion
 Plugin 'scrooloose/nerdtree'       " NerdTree
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'        " Surround
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -73,6 +70,7 @@ endif " has("autocmd")
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""" My custom settings """"""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nowrap               " I hate wrapping
 set hlsearch             " highlight search
 set incsearch		     " do incremental searching
 set history=1000         " keep a long list of command lines
