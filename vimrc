@@ -96,13 +96,15 @@ set formatoptions+=l          " this coupled with the next one avoid line wraps 
 set lbr                       " with line above avoids the line break problems I was seeing
 set nofoldenable              " don't fold by default
 colors murphy                 " set the color scheme to something I like
-"au GUIEnter * simalt ~x       " maximize the screen when loading
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
 syntax on                     " turn on syntax coloring
-""""""""" Set commands for tabs to make it more like Windows
+au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
+
+""""""""" Make tabs easier to manage 
 noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
 noremap  <C-W>      :tabclose<return>      " CTRL-W closes a tab
 noremap  <C-tab>    :tabnext<CR>           " Move between tabs with Ctrl+Tab
+
 """"""""" Make it easy to handle split screens        
 nnoremap <C-h> <C-w>h                      " move left between buffers
 nnoremap <C-j> <C-w>j                      " move down between buffers
@@ -112,36 +114,10 @@ nnoremap <A-left> :vertical resize -5<cr>  " decrease the width
 nnoremap <A-down> :resize -5<cr>           " decrease the height
 nnoremap <A-up> :resize +5<cr>             " increase the height
 nnoremap <A-right> :vertical resize +5<cr> " increase the width
+
 """"""""" Additional custom keybindings
 map <silent> <leader>ev :e $MYVIMRC<CR>    " allow for easy editing of vimrc
 map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
 nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
 nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
 
-au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
-
-""""""""""""""" Vim-LaTeX settings """"""""""""""""""""""""""""
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-" set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-" set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: This enables automatic indentation as you type.
-" filetype indent on
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-" let g:tex_flavor='latex'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""" TESTING NEW STUFF """""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
