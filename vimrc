@@ -95,6 +95,7 @@ let mapleader=","             " change the leader to comma
 set formatoptions+=l          " this coupled with the next one avoid line wraps in the middle of words
 set lbr                       " with line above avoids the line break problems I was seeing
 set nofoldenable              " don't fold by default
+set cursorline                " underline the current line
 colors murphy                 " set the color scheme to something I like
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
 syntax on                     " turn on syntax coloring
