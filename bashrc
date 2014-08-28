@@ -67,7 +67,7 @@
 # 
 # Set the bash history to not store duplicates or routine commands like ls, exit, etc.
 HISTIGNORE="&:ls:[bf]g:exit:lf:ldir"
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups   # don't show duplicate history entries
+export HISTCONTROL=ignoredups
 shopt -s histverify
 EDITOR=vim   # Set the default editor to vim
 alias lf="ls -l | egrep -v '^d'"
