@@ -84,10 +84,10 @@ set ic                   " ignore case by default in search
 set scs                  " smart case search (insenstive if all lowercase; sensitive otherwise) 
 set clipboard=unnamed    " make the clipboard default to the system clipboard
 set nobackup             " turn off the dumb ~ copy of each file
-set nowritebackup        " don't use the damn backup files set noswapfile 
+set nowritebackup        " don't use the backup files set noswapfile 
 set tabstop=4 shiftwidth=4 expandtab  " make the tabs reasonable
-set visualbell                " turn off the damn sounds
-set noerrorbells              " turn off the damn beeps
+set visualbell                " turn off the sounds
+set noerrorbells              " turn off the beeps
 set shortmess+=I              " turn off the welcome screen about Uganda
 set showmatch                 " show matching parenthesis
 set splitright                " puts new split windows on the right
@@ -96,10 +96,18 @@ set formatoptions+=l          " this coupled with the next one avoid line wraps 
 set lbr                       " with line above avoids the line break problems I was seeing
 set nofoldenable              " don't fold by default
 set cursorline                " underline the current line
-colors murphy                 " set the color scheme to something I like
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
 syntax on                     " turn on syntax coloring
 au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
+
+""""""""" Color scheme
+colors murphy                 " set the color scheme to something I like
+"colors twilight 
+"colors evening 
+"colors koehler 
+"colors ron 
+"colors slate 
+"colors default 
 
 """"""""" Make tabs easier to manage 
 noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
