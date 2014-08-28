@@ -50,9 +50,6 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
   " When editing a file, always jump to the last known cursor position.
   autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -71,6 +68,7 @@ endif " has("autocmd")
 """"""""""""""" My custom settings """"""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nowrap               " I hate wrapping
+set textwidth=0
 set hlsearch             " highlight search
 set incsearch		     " do incremental searching
 set history=1000         " keep a long list of command lines
@@ -92,8 +90,6 @@ set shortmess+=I              " turn off the welcome screen about Uganda
 set showmatch                 " show matching parenthesis
 set splitright                " puts new split windows on the right
 let mapleader=","             " change the leader to comma
-set formatoptions+=l          " this coupled with the next one avoid line wraps in the middle of words
-set lbr                       " with line above avoids the line break problems I was seeing
 set nofoldenable              " don't fold by default
 set cursorline                " underline the current line
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
@@ -125,6 +121,7 @@ nnoremap <A-up> :resize +5<cr>             " increase the height
 nnoremap <A-right> :vertical resize +5<cr> " increase the width
 
 """"""""" Additional custom keybindings
+map <silent> <leader>t :e /cygdrive/c/home/t.txt<CR> " open todo file
 map <silent> <leader>ev :e $MYVIMRC<CR>    " allow for easy editing of vimrc
 map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
 nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
