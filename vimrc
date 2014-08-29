@@ -97,13 +97,14 @@ syntax on                     " turn on syntax coloring
 au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
 
 """"""""" Color scheme
-colors murphy                 " set the color scheme to something I like
+"colors murphy                 " set the color scheme to something I like
 "colors twilight 
 "colors evening 
 "colors koehler 
-"colors ron 
+colors ron 
 "colors slate 
 "colors default 
+autocmd BufEnter *.txt colorscheme Murphy " always use Murphy for text files 
 
 """"""""" Make tabs easier to manage 
 noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
@@ -127,4 +128,8 @@ map <silent> <leader>ev :e $MYVIMRC<CR>    " allow for easy editing of vimrc
 map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
 nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
 nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
+
+" Testing
+map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
+
 
