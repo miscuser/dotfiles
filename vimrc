@@ -121,7 +121,8 @@ nnoremap <A-up> :resize +5<cr>             " increase the height
 nnoremap <A-right> :vertical resize +5<cr> " increase the width
 
 """"""""" Additional custom keybindings
-map <silent> <leader>t :e /cygdrive/c/home/t.txt<CR> " open todo file
+map <silent> <leader>t :e /cygdrive/c/home/notes/notes.md<CR> " open todo file
+map <silent> <leader>mp :! /cygdrive/c/bin/scripts/markdown_to_pdf.py %<CR> " markdown to PDF
 map <silent> <leader>ev :e $MYVIMRC<CR>    " allow for easy editing of vimrc
 map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
 nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
