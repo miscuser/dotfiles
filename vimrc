@@ -4,7 +4,7 @@
 set nocompatible 
 filetype off
 
-# Autoload Vundle if it not installed
+""""""""" Autoload Vundle if it not installed
 if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
     !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 endif
