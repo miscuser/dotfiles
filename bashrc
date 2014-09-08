@@ -17,3 +17,10 @@ shopt -s histverify
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
 alias grep='grep --color'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias gc='git commit'
+alias push='git push origin master'
+alias pull='git pull'
