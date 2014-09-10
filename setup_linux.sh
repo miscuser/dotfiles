@@ -7,9 +7,12 @@ dotfiles_dir=~/dotfiles                           # Dotfiles directory
 log_file=~/install_progress_log.txt
 
 # Get started properly by getting correct dotfiles 
-sudo chmod +x ~/dotfiles/makesymlinks.sh
-sudo ./makesymlinks.sh
-cd ~
+echo -n "Would you like to configure your dotfiles (Y/n) => "; read answer
+if [[ $answer = "Y" ]] ; then
+    sudo chmod +x ~/dotfiles/makesymlinks.sh
+    sudo ~/dotfiles/makesymlinks.sh
+    cd ~
+fi
 
 # Prompt to install regularly used packages 
 echo -n "Would you like to install all additional packages for this setup (Y/n) => "; read answer
