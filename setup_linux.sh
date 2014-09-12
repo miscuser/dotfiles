@@ -18,6 +18,8 @@ fi
 echo -n "Would you like to install all additional packages for this setup (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
 
+    sudo apt-get -y install lame
+
     sudo apt-get -y install vim
     if type -p vim > /dev/null; then
         echo "Vim Installed" >> $log_file
