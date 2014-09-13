@@ -3,6 +3,9 @@
 # New machine installation script
 # sudo git clone http://www.github.com/miscuser/dotfiles
 
+# ** add option to install wallpaper
+
+
 dotfiles_dir=~/dotfiles                           # Dotfiles directory
 log_file=~/install_progress_log.txt
 
@@ -18,20 +21,39 @@ fi
 echo -n "Would you like to install all additional packages for this setup (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
 
+    sudo apt-get -y install pandoc
+    if type -p pandoc > /dev/null; then
+        echo "Pandoc installed" >> $log_file
+    else
+        echo "Pandoc FAILED TO INSTALL!!!" >> $log_file
+    fi
+
+    sudo apt-get -y install texlive
+    if type -p texlive > /dev/null; then
+        echo "TexLive installed" >> $log_file
+    else
+        echo "TexLive FAILED TO INSTALL!!!" >> $log_file
+    fi
+
     sudo apt-get -y install lame
+    if type -p lame > /dev/null; then
+        echo "Lame installed" >> $log_file
+    else
+        echo "Lame FAILED TO INSTALL!!!" >> $log_file
+    fi
 
     sudo apt-get -y install vim
     if type -p vim > /dev/null; then
-        echo "Vim Installed" >> $log_file
+        echo "Vim installed" >> $log_file
     else
         echo "Vim FAILED TO INSTALL!!!" >> $log_file
     fi
 
     sudo apt-get -y install keepassx
-    if type -p keepassx > /dev/null; then
-        echo "Keepassx Installed" >> $log_file
+    if type -p keepass2 > /dev/null; then
+        echo "Keepass2 Installed" >> $log_file
     else
-        echo "Keepassx FAILED TO INSTALL!!!" >> $log_file
+        echo "Keepass2 FAILED TO INSTALL!!!" >> $log_file
     fi
 
     sudo apt-get -y install curl
@@ -42,7 +64,7 @@ if [[ $answer = "Y" ]] ; then
     fi
     
     sudo apt-get -y install dconf-tools
-    if type -p dconf-tools > /dev/null; then
+    if type -p dconf > /dev/null; then
         echo "dconf-tools Installed" >> $log_file
     else
         echo "dconf-tools FAILED TO INSTALL!!!" >> $log_file
@@ -76,7 +98,7 @@ if [[ $answer = "Y" ]] ; then
     sudo gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 fi
 
-# Give a summary of what has was installed
+# Give a summary of what was installed
 echo -e "\n====== Success!! ======\n"
 echo -e "\n====== Summary ======\n"
 cat $log_file
