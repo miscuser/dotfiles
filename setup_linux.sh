@@ -60,7 +60,7 @@ if [[ $answer = "Y" ]] ; then
     if type -p curl > /dev/null; then
         echo "curl Installed" >> $log_file
     else
-        echo "crul FAILED TO INSTALL!!!" >> $log_file
+        echo "curl FAILED TO INSTALL!!!" >> $log_file
     fi
     
     sudo apt-get -y install dconf-tools
