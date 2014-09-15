@@ -50,10 +50,10 @@ if [[ $answer = "Y" ]] ; then
     fi
 
     sudo apt-get -y install keepassx
-    if type -p keepass2 > /dev/null; then
-        echo "Keepass2 Installed" >> $log_file
+    if type -p keepassx > /dev/null; then
+        echo "keepassx Installed" >> $log_file
     else
-        echo "Keepass2 FAILED TO INSTALL!!!" >> $log_file
+        echo "keepassx FAILED TO INSTALL!!!" >> $log_file
     fi
 
     sudo apt-get -y install curl
