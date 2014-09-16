@@ -104,7 +104,9 @@ fi
 echo -n "Would you like to set additional preferences (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
     # Change folder view to lists
-    sudo gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
+    gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
+    gsettings set org.gnome.nautilus.preferences executable-text-activation launch
+
 fi
 
 # Give a summary of what was installed
