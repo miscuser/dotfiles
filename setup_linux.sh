@@ -28,7 +28,19 @@ if [[ $answer = "Y" ]] ; then
         echo "avidemux FAILED TO INSTALL!!!" >> $log_file
     fi
 
+    sudo apt-get install libav-tools
+    if type -p avconv > /dev/null; then
+        echo "libav-tools installed" >> $log_file
+    else
+        echo "libav-tools FAILED TO INSTALL!!!" >> $log_file
+    fi
+
     sudo apt-get install dos2unix
+    if type -p dos2unix > /dev/null; then
+        echo "dos2unix installed" >> $log_file
+    else
+        echo "dos2unix FAILED TO INSTALL!!!" >> $log_file
+    fi
 
     sudo apt-get -y install pandoc
     if type -p pandoc > /dev/null; then
