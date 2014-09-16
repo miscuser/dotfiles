@@ -21,11 +21,11 @@ fi
 echo -n "Would you like to install all additional packages for this setup (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
 
-    sudo apt-get -y install mplayer
-    if type -p mplayer > /dev/null; then
-        echo "mplayer installed" >> $log_file
+    sudo apt-get -y install avidemux
+    if type -p avidemux > /dev/null; then
+        echo "avidemux installed" >> $log_file
     else
-        echo "mplayer FAILED TO INSTALL!!!" >> $log_file
+        echo "avidemux FAILED TO INSTALL!!!" >> $log_file
     fi
 
     sudo apt-get install dos2unix
