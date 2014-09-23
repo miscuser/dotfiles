@@ -65,6 +65,19 @@ autocmd BufEnter * lcd %:p:h  " sets the current working directory to the curren
 syntax on                     " turn on syntax coloring
 au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
 
+""""""""" Status line
+set laststatus=2
+set statusline=
+set statusline+=%7*\[%n]                                  "buffernr
+set statusline+=%1*\ %<%F\                                "File+path
+set statusline+=%2*\ %y\                                  "FileType
+set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
+set statusline+=%9*\ col:%03c\                            "Colnr
+set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+
 """"""""" Folding
 set nofoldenable              " don't fold by default
 set foldmethod=indent         " fold based on indent   
@@ -110,7 +123,3 @@ nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
 nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
 
 """""""" Testing
-map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-
-
-"folding settings                               
