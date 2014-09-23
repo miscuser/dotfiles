@@ -60,18 +60,28 @@ set shortmess+=I              " turn off the welcome screen about Uganda
 set showmatch                 " show matching parenthesis
 set splitright                " puts new split windows on the right
 let mapleader=","             " change the leader to comma
-set nofoldenable              " don't fold by default
 set cursorline                " underline the current line
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
 syntax on                     " turn on syntax coloring
 au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
 
+""""""""" Folding
+set nofoldenable              " don't fold by default
+set foldmethod=indent         " fold based on indent   
+set foldnestmax=10            " deepest fold is 10 levels
+set foldlevel=1               
+" za – toggles
+" zc – closes
+" zo – opens
+" zR – open all
+" zM – close all
+
 """"""""" Colors
-"colors murphy             
+colors murphy             
 "colors twilight 
 "colors evening 
 "colors koehler 
-colors ron 
+"colors ron 
 "colors slate 
 "colors default 
 autocmd BufEnter *.txt colorscheme Murphy " always use Murphy for text files 
@@ -103,3 +113,4 @@ nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
 map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 
 
+"folding settings                               
