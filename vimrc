@@ -90,14 +90,16 @@ set foldlevel=1
 " zM – close all
 
 """"""""" Colors
-colors murphy             
+"colors murphy             
 "colors twilight 
 "colors evening 
 "colors koehler 
-"colors ron 
+colors ron 
 "colors slate 
 "colors default 
-autocmd BufEnter *.txt colorscheme Murphy " always use Murphy for text files 
+"colors tomorrow-night
+"colors tomorrow
+autocmd BufEnter *.txt colorscheme murphy " always use Murphy for text files 
 
 """"""""" Make tabs easier to manage 
 noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
