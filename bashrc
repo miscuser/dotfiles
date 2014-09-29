@@ -25,6 +25,10 @@ alias gc='git commit'
 alias push='git push origin master'
 alias pull='git pull'
 
+# Use arrow keys to default to history search
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
 # Extract the most commmon compression types
 function extract()
 {
@@ -47,3 +51,5 @@ function extract()
         echo "'$1' is not a valid file!"
     fi
 }
+
+
