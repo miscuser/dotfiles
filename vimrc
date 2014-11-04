@@ -99,6 +99,7 @@ colors ron
 "colors default 
 "colors tomorrow-night
 "colors tomorrow
+"colors knuckleduster
 autocmd BufEnter *.txt colorscheme murphy " always use Murphy for text files 
 
 """"""""" Make tabs easier to manage 
