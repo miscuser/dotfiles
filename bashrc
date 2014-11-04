@@ -12,6 +12,8 @@ bind TAB:menu-complete
 HISTIGNORE="&:ls:[bf]g:exit:lf:ldir"
 export HISTCONTROL=ignoredups
 shopt -s histverify
+HISTSIZE=-1 HISTFILESIZE=-1
+
 
 # Aliases
 alias lf="ls -l | egrep -v '^d'"
