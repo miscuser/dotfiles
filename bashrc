@@ -14,7 +14,8 @@ export HISTCONTROL=ignoredups
 shopt -s histverify
 export HISTSIZE= 
 export HISTFILESIZE=
-export HISTTIMEFORMAT="[%F %T] "
+#export HISTTIMEFORMAT="[%F %T] "
+export HISTTIMEFORMAT="[%F] "
 
 # Aliases
 alias lf="ls -l | egrep -v '^d'"
