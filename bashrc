@@ -4,7 +4,7 @@
 [[ "$-" != *i* ]] && return
 
 # Editor and display
-export EDITOR=vim   # Set the default editor to vim
+export EDITOR=vim  
 bind TAB:menu-complete
 
 
@@ -17,7 +17,9 @@ export HISTFILESIZE=
 #export HISTTIMEFORMAT="[%F %T] "
 export HISTTIMEFORMAT="[%F] "
 
-# Aliases
+#===============================================================================
+#  Aliases
+#===============================================================================
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
 alias grep='grep --color'
@@ -28,12 +30,38 @@ alias .....='cd ../../../..'
 alias gc='git commit'
 alias push='git push origin master'
 alias pull='git pull'
+alias bye='sudo shutdown -h now'
+alias update='sudo apt-get update && sudo apt-get upgrade'
+alias upgrade='sudo apt-get upgrade'
+alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 
 # Use arrow keys to default to history search
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
+
+#===============================================================================
+# FUNCTIONS
+#===============================================================================
+
+
+#-------------------------------------------------------------------------------
+#  Prints out my alias commands and functions
+#-------------------------------------------------------------------------------
+function custom() {
+    echo "###########  ALIASES  ############"
+    echo "       bye <<-- Shut down the computer"
+    echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
+    echo "   upgrade <<-- sudo apt-get upgrade"
+    echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
+    echo ""
+    echo "###########  FUNCTIONS  ############"
+    echo "   extract <<-- Extract the most common compression types"
+}
+
+#-------------------------------------------------------------------------------
 # Extract the most commmon compression types
+#-------------------------------------------------------------------------------
 function extract()
 {
     if [ -f "$1" ] ; then
@@ -55,5 +83,4 @@ function extract()
         echo "'$1' is not a valid file!"
     fi
 }
-
 
