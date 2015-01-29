@@ -3,12 +3,14 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-# Editor and display
+#===============================================================================
+#  Editor and display
+#===============================================================================
 export EDITOR=vim  
-bind TAB:menu-complete
 
-
-# History settings
+#===============================================================================
+#  History settings
+#===============================================================================
 HISTIGNORE="&:ls:[bf]g:exit:lf:ldir"
 export HISTCONTROL=ignoredups
 shopt -s histverify
@@ -16,6 +18,13 @@ export HISTSIZE=
 export HISTFILESIZE=
 #export HISTTIMEFORMAT="[%F %T] "
 export HISTTIMEFORMAT="[%F] "
+
+#===============================================================================
+#  Key bindings
+#===============================================================================
+bind '"\e[A":history-search-backward'    # arrow keys for history search
+bind '"\e[B":history-search-forward'     # arrow keys for history search
+bind TAB:menu-complete
 
 #===============================================================================
 #  Aliases
@@ -27,17 +36,14 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias gc='git commit'
+alias gc='git commit -m'
+alias ga='git add'
 alias push='git push origin master'
 alias pull='git pull'
 alias bye='sudo shutdown -h now'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias upgrade='sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
-
-# Use arrow keys to default to history search
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
 
 
 #===============================================================================
@@ -53,6 +59,10 @@ function custom() {
     echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
     echo "   upgrade <<-- sudo apt-get upgrade"
     echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
+    echo "        gc <<-- git commit -m"
+    echo "        ga <<-- git add"
+    echo "      pull <<-- git pull"
+    echo "      push <<-- git push origin master"
     echo ""
     echo "###########  FUNCTIONS  ############"
     echo "   extract <<-- Extract the most common compression types"
