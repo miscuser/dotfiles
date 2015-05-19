@@ -90,6 +90,12 @@ if [[ $answer = "Y" ]] ; then
     else
         echo "dconf-tools FAILED TO INSTALL!!!" >> $log_file
     fi
+
+    # Install ffmpeg from different ppa
+    sudo apt-add-repository ppa:mc3man/trusty-media
+    sudo apt-get update
+    sudo apt-add-repository --remove ppa:mc3man/trusty-media
+
 fi
 
 echo -n "Would you like to install SickBeard (Y/n) => "; read answer
