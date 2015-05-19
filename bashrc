@@ -44,6 +44,7 @@ alias bye='sudo shutdown -h now'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias upgrade='sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
+alias mini='sudo service minidlna force-reload'
 # work only
 alias code='cd /cygdrive/c/home/code'
 alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper.sh'
