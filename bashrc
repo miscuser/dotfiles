@@ -73,7 +73,17 @@ function custom() {
     echo ""
     echo "###########  FUNCTIONS  ############"
     echo "   extract <<-- Extract the most common compression types"
+    echo "   nightly <<-- Run nightly backup"
 }
+
+#-------------------------------------------------------------------------------
+#  Runs nightly backup 
+#-------------------------------------------------------------------------------
+function nightly()
+{
+    /home/misc/scripts/nightly_backup.sh
+}
+
 
 #-------------------------------------------------------------------------------
 # Extract the most commmon compression types
