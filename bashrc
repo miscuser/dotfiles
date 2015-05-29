@@ -32,6 +32,8 @@ bind TAB:menu-complete
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
 alias grep='grep --color'
+alias c='clear'
+alias vom='vim'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
