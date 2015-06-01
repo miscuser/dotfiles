@@ -78,6 +78,7 @@ function custom() {
     echo "   extract <<-- extract the most common compression types"
     echo "   nightly <<-- run nightly backup"
     echo "        ff <<-- find file with pattern in name"
+    echo "        fd <<-- find directory with pattern in name"
     echo "         c <<-- clear the terminal screen"
 }
 
@@ -120,7 +121,17 @@ function extract()
 #-------------------------------------------------------------------------------
 function ff() 
 { 
-    find . -type f -iname '*'"$*"'*' -ls; 
+    # Find files and omit errors (e.g. permission denied)
+    find . -type f -iname '*'"$*"'*' -ls 2>/dev/null 
+}
+
+#-------------------------------------------------------------------------------
+# Find a directory with pattern in name 
+#-------------------------------------------------------------------------------
+function fd() 
+{ 
+    # Find files and omit errors (e.g. permission denied)
+    find . -type d -iname '*'"$*"'*' -ls 2>/dev/null 
 }
 
 #-------------------------------------------------------------------------------
