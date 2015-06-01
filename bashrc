@@ -32,7 +32,6 @@ bind TAB:menu-complete
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
 alias grep='grep --color'
-alias c='clear'
 alias vom='vim'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -61,7 +60,7 @@ alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper.sh'
 #-------------------------------------------------------------------------------
 function custom() {
     echo "###########  ALIASES  ############"
-    echo "       bye <<-- Shut down the computer"
+    echo "       bye <<-- shut down the computer"
     echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
     echo "   upgrade <<-- sudo apt-get upgrade"
     echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
@@ -76,9 +75,10 @@ function custom() {
     echo "      code <<-- change to code directory"
     echo ""
     echo "###########  FUNCTIONS  ############"
-    echo "   extract <<-- Extract the most common compression types"
-    echo "   nightly <<-- Run nightly backup"
-    echo "        ff <<-- Find file withe pattern in name"
+    echo "   extract <<-- extract the most common compression types"
+    echo "   nightly <<-- run nightly backup"
+    echo "        ff <<-- find file with pattern in name"
+    echo "         c <<-- clear the terminal screen"
 }
 
 #-------------------------------------------------------------------------------
@@ -123,3 +123,16 @@ function ff()
     find . -type f -iname '*'"$*"'*' -ls; 
 }
 
+#-------------------------------------------------------------------------------
+# Clear the screen - handle all environments
+#-------------------------------------------------------------------------------
+function c()
+{
+    if [ "$(uname)" == "Darwin" ]; then
+        clear
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        clear
+    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
+        printf "\033c"
+    fi
+}
