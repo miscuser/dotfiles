@@ -69,6 +69,8 @@ function custom() {
     echo "        ga <<-- git add"
     echo "      pull <<-- git pull"
     echo "      push <<-- git push origin master"
+    echo "      mini <<-- restart minidlna"
+    echo ""
     echo "###########   WORK   #############" 
     echo "       ocz <<-- OneCard zipper - archives extract files"
     echo "      code <<-- change to code directory"
@@ -76,6 +78,7 @@ function custom() {
     echo "###########  FUNCTIONS  ############"
     echo "   extract <<-- Extract the most common compression types"
     echo "   nightly <<-- Run nightly backup"
+    echo "        ff <<-- Find file withe pattern in name"
 }
 
 #-------------------------------------------------------------------------------
@@ -110,5 +113,13 @@ function extract()
     else
         echo "'$1' is not a valid file!"
     fi
+}
+
+#-------------------------------------------------------------------------------
+# Find a file with pattern in name 
+#-------------------------------------------------------------------------------
+function ff() 
+{ 
+    find . -type f -iname '*'"$*"'*' -ls; 
 }
 
