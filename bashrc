@@ -31,6 +31,10 @@ bind TAB:menu-complete
 #===============================================================================
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
+alias ll='ls -lh'
+alias la='ls -la'
+alias lls='ls -lhSR'
+alias lla='ls -laSR'
 alias grep='grep --color'
 alias vom='vim'
 alias ..='cd ..'
