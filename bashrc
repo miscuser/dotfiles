@@ -79,6 +79,7 @@ function custom() {
     echo "###########   WORK   #############" 
     echo "       ocz <<-- OneCard zipper - archives extract files"
     echo "      code <<-- change to code directory"
+    echo "     phone <<-- search for phone number"
     echo ""
     echo "###########  FUNCTIONS  ############"
     echo "   extract <<-- extract the most common compression types"
@@ -96,6 +97,13 @@ function nightly()
     /home/misc/scripts/nightly_backup.sh
 }
 
+#-------------------------------------------------------------------------------
+#  WORK - Search for phone number 
+#-------------------------------------------------------------------------------
+function phone()
+{
+    grep -i $1 /cygdrive/c/home/reference/phone.txt
+}
 
 #-------------------------------------------------------------------------------
 # Extract the most commmon compression types
