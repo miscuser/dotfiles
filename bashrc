@@ -102,7 +102,19 @@ function nightly()
 #-------------------------------------------------------------------------------
 function phone()
 {
-    grep -i $1 /cygdrive/c/home/reference/phone.txt
+    if [ "$(uname)" == "Darwin" ] ; then
+        pfile='phone.txt'
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
+        pfile='phone.txt'
+    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
+        pfile='/cygdrive/c/home/reference/phone.txt'
+    fi
+    
+    if [ -f $pfile ] ; then
+        grep -i $1 $pfile 
+    else
+        echo "$pfile does not exist"
+    fi
 }
 
 #-------------------------------------------------------------------------------
