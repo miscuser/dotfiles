@@ -86,6 +86,7 @@ function custom() {
     echo "   nightly <<-- run nightly backup"
     echo "        ff <<-- find file with pattern in name"
     echo "        fd <<-- find directory with pattern in name"
+    echo "        dl <<-- change to download folder"
     echo "         c <<-- clear the terminal screen"
 }
 
