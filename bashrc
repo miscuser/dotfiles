@@ -98,6 +98,20 @@ function nightly()
 }
 
 #-------------------------------------------------------------------------------
+#  Change to download folder 
+#-------------------------------------------------------------------------------
+function dl()
+{
+    if [ "$(uname)" == "Darwin" ] ; then
+        echo "You need to set the path"
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
+        cd ~/Downloads
+    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
+        cd  /cygdrive/c/users/100219278/Downloads
+    fi
+}
+
+#-------------------------------------------------------------------------------
 #  Search for phone number 
 #-------------------------------------------------------------------------------
 function phone()
@@ -156,7 +170,7 @@ function ff()
 #-------------------------------------------------------------------------------
 function fd() 
 { 
-    # Find files and omit errors (e.g. permission denied)
+    # Find directories and omit errors (e.g. permission denied)
     find . -type d -iname '*'"$*"'*' -ls 2>/dev/null 
 }
 
