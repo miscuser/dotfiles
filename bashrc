@@ -84,6 +84,7 @@ function custom() {
     echo "###########  FUNCTIONS  ############"
     echo "   extract <<-- extract the most common compression types"
     echo "   nightly <<-- run nightly backup"
+    echo "     mvnzb <<-- move nzb files to correct directory"
     echo "        ff <<-- find file with pattern in name"
     echo "        fd <<-- find directory with pattern in name"
     echo "        dl <<-- change to download folder"
