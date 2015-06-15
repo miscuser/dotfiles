@@ -100,7 +100,8 @@ colors ron
 "colors tomorrow-night
 "colors tomorrow
 "colors knuckleduster
-autocmd BufEnter *.txt colorscheme murphy " always use Murphy for text files 
+autocmd BufEnter *.txt colorscheme murphy " always use Murphy for text 
+autocmd BufEnter *.markdown colorscheme slate " always use Slate for markdown 
 
 """"""""" Make tabs easier to manage 
 noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
