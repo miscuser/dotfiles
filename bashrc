@@ -188,3 +188,17 @@ function c()
         printf "\033c"
     fi
 }
+
+#-------------------------------------------------------------------------------
+# Move nzb files to proper directory
+#-------------------------------------------------------------------------------
+function mvnzb()
+{
+    if [ "$(uname)" == "Darwin" ]; then
+        echo "configure this"
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        mv ~/Downloads/*.nzb ~/Downloads/nzb
+    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
+        echo "configure this"
+    fi
+}
