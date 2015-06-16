@@ -51,19 +51,17 @@ set incsearch            " make search act like search in modern browsers
 set ic                   " ignore case by default in search
 set scs                  " smart case search (insenstive if all lowercase; sensitive otherwise) 
 set clipboard=unnamed    " make the clipboard default to the system clipboard
-set nobackup             " turn off the dumb ~ copy of each file
+set nobackup             " turn off the ~ copy of each file
 set nowritebackup        " don't use the backup files set noswapfile 
-set tabstop=4 shiftwidth=4 expandtab  " make the tabs reasonable
+set tabstop=4 shiftwidth=4 expandtab  " make tabs reasonable
 set visualbell                " turn off the sounds
 set noerrorbells              " turn off the beeps
 set shortmess+=I              " turn off the welcome screen about Uganda
 set showmatch                 " show matching parenthesis
-set splitright                " puts new split windows on the right
 let mapleader=","             " change the leader to comma
 set cursorline                " underline the current line
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
 syntax on                     " turn on syntax coloring
-au BufRead,BufNewFile *.md,*.markdown set filetype=markdown  " turn on highlighting for markdown files
 
 "-- Status line
 set laststatus=2
@@ -100,7 +98,6 @@ colorscheme ron
 "colorscheme tomorrow-night
 "colorscheme tomorrow
 "colorscheme knuckleduster
-"colorscheme candy
 autocmd BufEnter *.txt colorscheme murphy " set color for text 
 
 "-- Tabs 
@@ -109,6 +106,7 @@ noremap  <C-W>      :tabclose<return>      " CTRL-W closes a tab
 noremap  <C-tab>    :tabnext<CR>           " Move between tabs with Ctrl+Tab
 
 "-- Split screens 
+set splitright                             " puts new split windows on the right
 nnoremap <C-h> <C-w>h                      " move left between buffers
 nnoremap <C-j> <C-w>j                      " move down between buffers
 nnoremap <C-k> <C-w>k                      " move up between buffers
@@ -118,11 +116,16 @@ nnoremap <A-down> :resize -5<cr>           " decrease the height
 nnoremap <A-up> :resize +5<cr>             " increase the height
 nnoremap <A-right> :vertical resize +5<cr> " increase the width
 
-"-- Custom keybindings
-map <silent> <leader>t :e /cygdrive/c/home/notes/notes.md<CR> " open todo file
-map <silent> <leader>mp :! /cygdrive/c/bin/scripts/markdown_to_pdf.py %<CR> " markdown to PDF
-map <silent> <leader>ev :e $MYVIMRC<CR>    " allow for easy editing of vimrc
+"-- Copy, highlight, navigation 
 map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
 nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
 nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
 
+"-- Pandoc and markdown 
+au BufRead,BufNewFile *.md,*.markdown set filetype=markdown  " set filetypes 
+command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
+map <silent> <leader>mp :PDF<CR>
+
+"-- Open common files
+map <silent> <leader>ev :e $MYVIMRC<CR> 
+map <silent> <leader>t :e /cygdrive/c/home/notes/notes.md<CR> 
