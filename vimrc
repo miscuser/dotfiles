@@ -11,16 +11,16 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugins 
+"""""""" Plugins 
 Plugin 'gmarik/Vundle.vim'         " Let Vundle manage Vundle
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdtree'   
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround' 
 call vundle#end()                  " required
-
 filetype plugin indent on          " required
 
+"""""""" Vundle instructions
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update
 " :PluginUpdate     - update plugins
@@ -36,7 +36,7 @@ if has('mouse')                 " enable mouse
   set mouse=a
 endif
 
-""""""""" My custom settings """"""""""""""""""""""""""""
+""""""""" Custom settings 
 set nowrap               " I hate wrapping
 set textwidth=0
 set hlsearch             " highlight search
@@ -63,7 +63,7 @@ let mapleader=","             " change the leader to comma
 set cursorline                " underline the current line
 autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
 syntax on                     " turn on syntax coloring
-au BufRead,BufNewFile *.md set filetype=markdown  " turn on highlighting for markdown files
+au BufRead,BufNewFile *.md,*.markdown set filetype=markdown  " turn on highlighting for markdown files
 
 """"""""" Status line
 set laststatus=2
@@ -89,26 +89,26 @@ set foldlevel=1
 " zR – open all
 " zM – close all
 
-""""""""" Colors
-"colors murphy             
-"colors twilight 
-"colors evening 
-"colors koehler 
-colors ron 
-"colors slate 
-"colors default 
-"colors tomorrow-night
-"colors tomorrow
-"colors knuckleduster
-autocmd BufEnter *.txt colorscheme murphy " always use Murphy for text 
-autocmd BufEnter *.markdown colorscheme slate " always use Slate for markdown 
+""""""""" Colorschemes
+"colorscheme murphy             
+"colorscheme twilight 
+"colorscheme evening 
+"colorscheme koehler 
+colorscheme ron 
+"colorscheme slate 
+"colorscheme default 
+"colorscheme tomorrow-night
+"colorscheme tomorrow
+"colorscheme knuckleduster
+"colorscheme candy
+autocmd BufEnter *.txt colorscheme murphy " set color for text 
 
-""""""""" Make tabs easier to manage 
+""""""""" Tabs 
 noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
 noremap  <C-W>      :tabclose<return>      " CTRL-W closes a tab
 noremap  <C-tab>    :tabnext<CR>           " Move between tabs with Ctrl+Tab
 
-""""""""" Make it easy to handle split screens        
+""""""""" Split screens 
 nnoremap <C-h> <C-w>h                      " move left between buffers
 nnoremap <C-j> <C-w>j                      " move down between buffers
 nnoremap <C-k> <C-w>k                      " move up between buffers
@@ -118,7 +118,7 @@ nnoremap <A-down> :resize -5<cr>           " decrease the height
 nnoremap <A-up> :resize +5<cr>             " increase the height
 nnoremap <A-right> :vertical resize +5<cr> " increase the width
 
-""""""""" Additional custom keybindings
+""""""""" Custom keybindings
 map <silent> <leader>t :e /cygdrive/c/home/notes/notes.md<CR> " open todo file
 map <silent> <leader>mp :! /cygdrive/c/bin/scripts/markdown_to_pdf.py %<CR> " markdown to PDF
 map <silent> <leader>ev :e $MYVIMRC<CR>    " allow for easy editing of vimrc
@@ -126,4 +126,3 @@ map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
 nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
 nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
 
-"""""""" Testing
