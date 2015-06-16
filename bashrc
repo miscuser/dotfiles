@@ -55,7 +55,7 @@ alias home='cd ~'
 # work only
 alias code='cd /cygdrive/c/home/code'
 alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper.sh'
-
+alias testing='cd /cygdrive/c/testing'
 
 #===============================================================================
 # FUNCTIONS
