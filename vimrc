@@ -17,6 +17,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdtree'   
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround' 
+Plugin 'ervandew/supertab'
 call vundle#end()                  " required
 filetype plugin indent on          " required
 
