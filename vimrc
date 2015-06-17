@@ -121,6 +121,8 @@ nnoremap <A-right> :vertical resize +5<cr> " increase the width
 map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
 nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
 nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%100v.\+/
 
 "-- Pandoc and markdown 
 au BufRead,BufNewFile *.md,*.markdown set filetype=markdown  " set filetypes 
@@ -130,3 +132,8 @@ map <silent> <leader>mp :PDF<CR>
 "-- Open common files
 map <silent> <leader>ev :e $MYVIMRC<CR> 
 map <silent> <leader>t :e /cygdrive/c/home/notes/notes.md<CR> 
+
+"-- Compiling
+command PyRun ! python %
+map <silent> <leader>py :PyRun<CR>
+
