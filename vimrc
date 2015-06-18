@@ -128,7 +128,6 @@ map <silent> <leader>mp :PDF<CR>
 
 "-- Open common files
 map <silent> <leader>ev :e $MYVIMRC<CR> 
-map <silent> <leader>t :e /cygdrive/c/home/notes/notes.md<CR> 
 
 "-- Compiling
 command PyRun ! python %
