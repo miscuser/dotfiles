@@ -101,17 +101,18 @@ colorscheme ron
 "colorscheme knuckleduster
 autocmd BufEnter *.txt colorscheme murphy " set color for text 
 
-"-- Tabs 
+"-- Tabs and buffers 
 noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
 noremap  <C-W>      :tabclose<return>      " CTRL-W closes a tab
-noremap  <C-tab>    :tabnext<CR>           " Move between tabs with Ctrl+Tab
+noremap  <leader>B    :bnext<CR>           " Move to next buffer 
+noremap  <leader>b    :bprev<CR>           " Move to previous buffer
 
 "-- Split screens 
 set splitright                             " puts new split windows on the right
-nnoremap <C-h> <C-w>h                      " move left between buffers
-nnoremap <C-j> <C-w>j                      " move down between buffers
-nnoremap <C-k> <C-w>k                      " move up between buffers
-nnoremap <C-l> <C-w>l                      " move right between buffers
+nnoremap <C-h> <C-w>h                      " move left between splits 
+nnoremap <C-j> <C-w>j                      " move down between splits
+nnoremap <C-k> <C-w>k                      " move up between splits
+nnoremap <C-l> <C-w>l                      " move right between splits
 nnoremap <A-left> :vertical resize -5<cr>  " decrease the width
 nnoremap <A-down> :resize -5<cr>           " decrease the height
 nnoremap <A-up> :resize +5<cr>             " increase the height
