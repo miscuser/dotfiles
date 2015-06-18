@@ -18,6 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround' 
 Plugin 'ervandew/supertab'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()                  " required
 filetype plugin indent on          " required
 
@@ -89,23 +90,18 @@ set foldlevel=1
 " zM – close all
 
 "-- Colorschemes
-"colorscheme murphy             
-"colorscheme twilight 
-"colorscheme evening 
-"colorscheme koehler 
-colorscheme ron 
-"colorscheme slate 
-"colorscheme default 
-"colorscheme tomorrow-night
-"colorscheme tomorrow
-"colorscheme knuckleduster
-autocmd BufEnter *.txt colorscheme murphy " set color for text 
+autocmd BufEnter *     colorscheme ron 
+autocmd BufEnter *.txt colorscheme murphy 
+"autocmd BufEnter *.markdown colorscheme default 
 
 "-- Tabs and buffers 
-noremap  <C-T>      :tabnew<return>        " CTRL-T opens a new tab
-noremap  <C-W>      :tabclose<return>      " CTRL-W closes a tab
-noremap  <leader>B    :bnext<CR>           " Move to next buffer 
-noremap  <leader>b    :bprev<CR>           " Move to previous buffer
+noremap  <C-T> :tabnew<CR>
+noremap  <C-W> :tabclose<CR>
+noremap  <leader>B :bnext<CR>
+noremap  <leader>b :bprev<CR>
+noremap <C-PageDown> :cnext<CR>
+noremap <C-PageUp> :cprev<CR>
+map <F3> :buffers<CR>
 
 "-- Split screens 
 set splitright                             " puts new split windows on the right
@@ -126,7 +122,7 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%100v.\+/
 
 "-- Pandoc and markdown 
-au BufRead,BufNewFile *.md,*.markdown set filetype=markdown  " set filetypes 
+au BufRead,BufNewFile,BufEnter *.md,*.markdown set filetype=markdown  " set filetypes 
 command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
 map <silent> <leader>mp :PDF<CR>
 
