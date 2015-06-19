@@ -19,6 +19,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround' 
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
+Plugin 'embear/vim-foldsearch'
 call vundle#end()                  " required
 filetype plugin indent on          " required
 
@@ -83,6 +84,7 @@ set nofoldenable              " don't fold by default
 set foldmethod=indent         " fold based on indent   
 set foldnestmax=10            " deepest fold is 10 levels
 set foldlevel=1               
+map <silent> <leader>yo :folddoopen y 
 " za – toggles
 " zc – closes
 " zo – opens
