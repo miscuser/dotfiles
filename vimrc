@@ -85,6 +85,7 @@ set foldmethod=indent         " fold based on indent
 set foldnestmax=10            " deepest fold is 10 levels
 set foldlevel=1               
 map <silent> <leader>yo :folddoopen y 
+let g:foldsearch_highlight=1
 " za – toggles
 " zc – closes
 " zo – opens
