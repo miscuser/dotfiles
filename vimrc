@@ -84,13 +84,16 @@ set nofoldenable              " don't fold by default
 set foldmethod=indent         " fold based on indent   
 set foldnestmax=10            " deepest fold is 10 levels
 set foldlevel=1               
-map <silent> <leader>yo :folddoopen y 
-let g:foldsearch_highlight=1
 " za – toggles
 " zc – closes
 " zo – opens
 " zR – open all
 " zM – close all
+
+"-- Customizations for vim-foldsearch
+map <silent> <leader>yo :folddoopen y 
+let g:foldsearch_disable_mappings=1     " disable default mappings
+let g:foldsearch_highlight=1        " highlight search results
 
 "-- Colorschemes
 autocmd BufEnter *     colorscheme ron 
