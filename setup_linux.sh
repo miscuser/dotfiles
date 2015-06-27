@@ -49,7 +49,7 @@ if [[ $answer = "Y" ]] ; then
         echo "Pandoc FAILED TO INSTALL!!!" >> $log_file
     fi
 
-    sudo apt-get -y install texlive
+    sudo apt-get -y install texlive-full
     if type -p texlive > /dev/null; then
         echo "TexLive installed" >> $log_file
     else
