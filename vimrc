@@ -124,7 +124,9 @@ set listchars=tab:▸\ ,eol:¬
 "-- Pandoc and markdown
 au BufRead,BufNewFile,BufEnter *.md,*.markdown set filetype=markdown  " set filetypes
 command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
+command HTML ! pandoc -V geometry:margin=1in % -o %:r.html
 map <silent> <leader>mp :PDF<CR>
+map <silent> <leader>mh :HTML<CR>
 
 "-- Open common files
 map <silent> <leader>ev :e $MYVIMRC<CR>      " quickly edit vimrc

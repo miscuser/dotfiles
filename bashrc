@@ -85,6 +85,7 @@ function custom() {
     echo "   extract <<-- extract the most common compression types"
     echo "   nightly <<-- run nightly backup"
     echo "     mvnzb <<-- move nzb files to correct directory"
+    echo "      docs <<-- change to documents folder"
     echo "        ff <<-- find file with pattern in name"
     echo "        fd <<-- find directory with pattern in name"
     echo "        dl <<-- change to download folder"
@@ -110,6 +111,20 @@ function dl()
         cd ~/Downloads
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
         cd  /cygdrive/c/users/100219278/Downloads
+    fi
+}
+
+#-------------------------------------------------------------------------------
+#  Change to documents folder 
+#-------------------------------------------------------------------------------
+function docs()
+{
+    if [ "$(uname)" == "Darwin" ] ; then
+        echo "You need to set the path"
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
+        cd ~/Documents
+    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
+        echo "You need to set the page" 
     fi
 }
 
