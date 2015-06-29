@@ -44,11 +44,11 @@ source ~/dotfiles/abbreviations.vim   " common abbreviations
 set nowrap               " I hate wrapping
 set textwidth=0
 set hlsearch             " highlight search
-set incsearch		     " do incremental searching
+set incsearch            " do incremental searching
 set history=1000         " keep a long list of command lines
 set undolevels=500       " allow a lot of undo activity
-set ruler	    	     " show the cursor position all the time
-set showcmd	    	     " display incomplete commands
+set ruler                " show the cursor position all the time
+set showcmd              " display incomplete commands
 set nostartofline        " do not reset cursor to start of line
 set number               " turn on line numbers
 set incsearch            " make search act like search in modern browsers
