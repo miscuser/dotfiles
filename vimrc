@@ -1,7 +1,7 @@
 " Misc vimrc
 
-"-- Vundle 
-set nocompatible 
+"-- Vundle
+set nocompatible
 filetype off
 
 if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
@@ -11,12 +11,12 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"-- Plugins 
+"-- Plugins
 Plugin 'gmarik/Vundle.vim'         " Let Vundle manage Vundle
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/nerdtree'   
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround' 
+Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'embear/vim-foldsearch'
@@ -39,7 +39,7 @@ if has('mouse')                 " enable mouse
   set mouse=a
 endif
 
-"-- Custom settings 
+"-- Custom settings
 set nowrap               " I hate wrapping
 set textwidth=0
 set hlsearch             " highlight search
@@ -52,10 +52,10 @@ set nostartofline        " do not reset cursor to start of line
 set number               " turn on line numbers
 set incsearch            " make search act like search in modern browsers
 set ic                   " ignore case by default in search
-set scs                  " smart case search (insenstive if all lowercase; sensitive otherwise) 
+set scs                  " smart case search (insensitive if all lowercase; sensitive otherwise)
 set clipboard=unnamed    " make the clipboard default to the system clipboard
 set nobackup             " turn off the ~ copy of each file
-set nowritebackup        " don't use the backup files set noswapfile 
+set nowritebackup        " don't use the backup files set noswapfile
 set tabstop=4 shiftwidth=4 expandtab  " make tabs reasonable
 set visualbell                " turn off the sounds
 set noerrorbells              " turn off the beeps
@@ -63,7 +63,8 @@ set shortmess+=I              " turn off the welcome screen about Uganda
 set showmatch                 " show matching parenthesis
 let mapleader=","             " change the leader to comma
 set cursorline                " underline the current line
-autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location 
+set spellsuggest=10
+autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location
 syntax on                     " turn on syntax coloring
 
 "-- Status line
@@ -74,16 +75,16 @@ set statusline+=%1*\ %<%F\                                " file+path
 set statusline+=%2*\ %y\                                  " file type
 set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      " encoding
 set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            " encoding2
-set statusline+=%4*\ %{&ff}\                              " file format (dos/unix) 
+set statusline+=%4*\ %{&ff}\                              " file format (dos/unix)
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             " rownumber/total (%)
 set statusline+=%9*\ col:%03c\                            " column
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      " Modified? Readonly? Top/bot.
 
 "-- Folding
 set nofoldenable              " don't fold by default
-set foldmethod=indent         " fold based on indent   
+set foldmethod=indent         " fold based on indent
 set foldnestmax=10            " deepest fold is 10 levels
-set foldlevel=1               
+set foldlevel=1
 " za – toggles
 " zc – closes
 " zo – opens
@@ -91,51 +92,79 @@ set foldlevel=1
 " zM – close all
 
 "-- Customizations for vim-foldsearch
-map <silent> <leader>yo :folddoopen y 
+map <silent> <leader>yo :folddoopen y
 let g:foldsearch_disable_mappings=1     " disable default mappings
 let g:foldsearch_highlight=1        " highlight search results
 
 "-- Colorschemes
-autocmd BufEnter *     colorscheme ron 
-autocmd BufEnter *.txt colorscheme murphy 
-"autocmd BufEnter *.markdown colorscheme default 
+autocmd BufEnter *     colorscheme ron
+autocmd BufEnter *.txt colorscheme murphy
 
-"-- Tabs and buffers 
-noremap  <C-T> :tabnew<CR>
-noremap  <C-W> :tabclose<CR>
+"-- Tabs and buffers
 noremap  <leader>B :bnext<CR>
 noremap  <leader>b :bprev<CR>
 noremap <C-PageDown> :cnext<CR>
 noremap <C-PageUp> :cprev<CR>
-map <F3> :buffers<CR>
 
-"-- Split screens 
+"-- Split screens
 set splitright                             " puts new split windows on the right
-nnoremap <C-h> <C-w>h                      " move left between splits 
+nnoremap <C-h> <C-w>h                      " move left between splits
 nnoremap <C-j> <C-w>j                      " move down between splits
 nnoremap <C-k> <C-w>k                      " move up between splits
 nnoremap <C-l> <C-w>l                      " move right between splits
-nnoremap <A-left> :vertical resize -5<cr>  " decrease the width
-nnoremap <A-down> :resize -5<cr>           " decrease the height
-nnoremap <A-up> :resize +5<cr>             " increase the height
-nnoremap <A-right> :vertical resize +5<cr> " increase the width
+nnoremap <A-left> :vertical resize -5<CR>  " decrease the width
+nnoremap <A-right> :vertical resize +5<CR> " increase the width
+nnoremap <leader>w :vsplit new<CR><C-w>l   " create split
 
-"-- Copy, highlight, navigation 
-map <F2> :NERDTreeToggle<CR>               " map F2 to NERDTree plugin
-nmap <silent> <F5> ggVG"+y                 " map F5 to copy all
-nmap <silent> <F4> ggVG                    " map F4 to select/highlight all
+"-- Copy, highlight, navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%100v.\+/
+set listchars=tab:▸\ ,eol:¬
 
-"-- Pandoc and markdown 
-au BufRead,BufNewFile,BufEnter *.md,*.markdown set filetype=markdown  " set filetypes 
+"-- Pandoc and markdown
+au BufRead,BufNewFile,BufEnter *.md,*.markdown set filetype=markdown  " set filetypes
 command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
 map <silent> <leader>mp :PDF<CR>
 
 "-- Open common files
-map <silent> <leader>ev :e $MYVIMRC<CR> 
+map <silent> <leader>ev :e $MYVIMRC<CR>      " quickly edit vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<CR>    " source vimrc
 
-"-- Compiling
+"-- Python 
 command PyRun ! python %
 map <silent> <leader>py :PyRun<CR>
+
+"-- Sanity mappings
+nnoremap ; :
+nnoremap j gj
+nnoremap k gk
+inoremap jj <ESC>
+
+"-- Misc. mappings
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>     " strip whitespace from the end of lines
+nmap <leader>p :set paste!<CR>                       " toggle paste mode
+nmap <silent> <leader>/ :nohlsearch<CR>              " clear highlighted search results
+nmap <leader>z z=                                    " show suggested spelling
+
+" Function keys
+map <F1> <ESC>    
+map <F2> :NERDTreeToggle<CR>    
+map <F3> :CtrlPBuffer<CR>
+nmap <silent> <F4> ggVG           " select/highlight all
+nmap <silent> <F5> ggVG"+y        " copy all
+nnoremap <F8> :set list!<CR>
+nnoremap <F9> :set spell!<CR>
+nnoremap <S-F9> ]S
+
+" CtrlP settings
+nmap <leader>t :CtrlP<CR>
+nmap <leader>r :CtrlPBuffer<CR>
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
+
+
 
