@@ -40,6 +40,7 @@ if has('mouse')                 " enable mouse
 endif
 
 "-- Custom settings
+source ~/dotfiles/abbreviations.vim   " common abbreviations
 set nowrap               " I hate wrapping
 set textwidth=0
 set hlsearch             " highlight search
@@ -114,7 +115,7 @@ nnoremap <C-k> <C-w>k                      " move up between splits
 nnoremap <C-l> <C-w>l                      " move right between splits
 nnoremap <A-left> :vertical resize -5<CR>  " decrease the width
 nnoremap <A-right> :vertical resize +5<CR> " increase the width
-nnoremap <leader>w :vsplit new<CR><C-w>l   " create split
+nnoremap <leader>w :vnew<CR><C-w>l         " create split
 
 "-- Copy, highlight, navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -130,7 +131,7 @@ map <silent> <leader>mp :PDF<CR>
 map <silent> <leader>ev :e $MYVIMRC<CR>      " quickly edit vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>    " source vimrc
 
-"-- Python 
+"-- Python
 command PyRun ! python %
 map <silent> <leader>py :PyRun<CR>
 
@@ -147,14 +148,14 @@ nmap <silent> <leader>/ :nohlsearch<CR>              " clear highlighted search 
 nmap <leader>z z=                                    " show suggested spelling
 
 " Function keys
-map <F1> <ESC>    
-map <F2> :NERDTreeToggle<CR>    
+map <F1> <ESC>
+map <F2> :NERDTreeToggle<CR>
 map <F3> :CtrlPBuffer<CR>
 nmap <silent> <F4> ggVG           " select/highlight all
 nmap <silent> <F5> ggVG"+y        " copy all
 nnoremap <F8> :set list!<CR>
 nnoremap <F9> :set spell!<CR>
-nnoremap <S-F9> ]S
+nnoremap <S-F9> ]s
 
 " CtrlP settings
 nmap <leader>t :CtrlP<CR>
@@ -165,6 +166,3 @@ let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
-
-
-
