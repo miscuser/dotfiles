@@ -128,8 +128,9 @@ command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
 map <silent> <leader>mp :PDF<CR>
 
 "-- Open common files
-map <silent> <leader>ev :e $MYVIMRC<CR>      " quickly edit vimrc
-nmap <silent> <leader>sv :so $MYVIMRC<CR>    " source vimrc
+map <silent> <leader>ea :e ~/dotfiles/abbreviations.vim<CR>   " abbreviations
+map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
 
 "-- Python
 command PyRun ! python %
