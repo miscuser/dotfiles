@@ -127,6 +127,12 @@ if [[ $answer = "Y" ]] ; then
 
 fi
 
+echo -n "Would you like to swap CAPS and CTRL by inserting "ctrl:swapcaps" (Y/n) => "; read answer
+if [[ $answer = "Y" ]] ; then
+    sudo vim /etc/default/keyboard
+    sudo dpkg-reconfigure keyboard-configuration
+fi
+
 # Give a summary of what was installed
 echo -e "\n====== Success!! ======\n"
 echo -e "\n====== Summary ======\n"
