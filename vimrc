@@ -151,6 +151,7 @@ nmap <silent> <leader>/ :nohlsearch<CR>              " clear highlighted search 
 nmap <leader>z z=                                    " show suggested spelling
 map <leader>cc :ccl<CR>                              " close the quickfix window
 map <leader>co :copen<CR>                            " jump to quickfix window
+map <leader>a :Ack! 
 
 "-- Function keys
 map <F1> <ESC>
