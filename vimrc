@@ -165,6 +165,7 @@ nnoremap <S-F9> ]s
 
 "-- CtrlP settings
 nmap <leader>t :CtrlP<CR>
+nmap <leader>T :CtrlP 
 nmap <leader>r :CtrlPBuffer<CR>
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
