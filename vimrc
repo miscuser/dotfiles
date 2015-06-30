@@ -52,8 +52,8 @@ set showcmd              " display incomplete commands
 set nostartofline        " do not reset cursor to start of line
 set number               " turn on line numbers
 set incsearch            " make search act like search in modern browsers
-set ic                   " ignore case by default in search
-set scs                  " smart case search (insensitive if all lowercase; sensitive otherwise)
+set ignorecase           " ignore case by default
+set smartcase            " intelligent search (insensitive if all lowercase; sensitive otherwise)
 set clipboard=unnamed    " make the clipboard default to the system clipboard
 set nobackup             " turn off the ~ copy of each file
 set nowritebackup        " don't use the backup files set noswapfile
@@ -95,7 +95,7 @@ set foldlevel=1
 "-- Customizations for vim-foldsearch
 map <silent> <leader>yo :folddoopen y
 let g:foldsearch_disable_mappings=1     " disable default mappings
-let g:foldsearch_highlight=1        " highlight search results
+let g:foldsearch_highlight=1            " highlight search results
 
 "-- Colorschemes
 autocmd BufEnter *     colorscheme ron
@@ -130,7 +130,7 @@ map <silent> <leader>mp :PDF<CR>
 "-- Open common files
 map <silent> <leader>ea :e ~/dotfiles/abbreviations.vim<CR>   " abbreviations
 map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
-nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source it 
 
 "-- Python
 command PyRun ! python %
