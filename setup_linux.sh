@@ -9,7 +9,7 @@
 dotfiles_dir=~/dotfiles                           # Dotfiles directory
 log_file=~/install_progress_log.txt
 
-# Get started properly by getting correct dotfiles 
+# Alias dotfiles in home directory 
 echo -n "Would you like to configure your dotfiles (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
     sudo chmod +x ~/dotfiles/makesymlinks.sh
@@ -18,77 +18,91 @@ if [[ $answer = "Y" ]] ; then
 fi
 
 # Prompt to install regularly used packages 
-echo -n "Would you like to install all additional packages for this setup (Y/n) => "; read answer
+echo -n "Would you like to install additional packages for this setup (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
 
     sudo apt-get -y install avidemux
     if type -p avidemux > /dev/null; then
         echo "avidemux installed" >> $log_file
     else
-        echo "avidemux FAILED TO INSTALL!!!" >> $log_file
+        echo "avidemux FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get install libav-tools
     if type -p avconv > /dev/null; then
         echo "libav-tools installed" >> $log_file
     else
-        echo "libav-tools FAILED TO INSTALL!!!" >> $log_file
+        echo "libav-tools FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get install dos2unix
     if type -p dos2unix > /dev/null; then
         echo "dos2unix installed" >> $log_file
     else
-        echo "dos2unix FAILED TO INSTALL!!!" >> $log_file
+        echo "dos2unix FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get -y install pandoc
     if type -p pandoc > /dev/null; then
         echo "Pandoc installed" >> $log_file
     else
-        echo "Pandoc FAILED TO INSTALL!!!" >> $log_file
+        echo "Pandoc FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get -y install texlive-full
     if type -p texlive > /dev/null; then
         echo "TexLive installed" >> $log_file
     else
-        echo "TexLive FAILED TO INSTALL!!!" >> $log_file
+        echo "TexLive FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get -y install lame
     if type -p lame > /dev/null; then
         echo "Lame installed" >> $log_file
     else
-        echo "Lame FAILED TO INSTALL!!!" >> $log_file
+        echo "Lame FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get -y install vim
     if type -p vim > /dev/null; then
         echo "Vim installed" >> $log_file
     else
-        echo "Vim FAILED TO INSTALL!!!" >> $log_file
+        echo "Vim FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get -y install keepassx
     if type -p keepassx > /dev/null; then
-        echo "keepassx Installed" >> $log_file
+        echo "keepassx installed" >> $log_file
     else
-        echo "keepassx FAILED TO INSTALL!!!" >> $log_file
+        echo "keepassx FAILED TO INSTALL" >> $log_file
     fi
 
     sudo apt-get -y install curl
     if type -p curl > /dev/null; then
-        echo "curl Installed" >> $log_file
+        echo "curl installed" >> $log_file
     else
-        echo "curl FAILED TO INSTALL!!!" >> $log_file
+        echo "curl FAILED TO INSTALL" >> $log_file
     fi
     
     sudo apt-get -y install dconf-tools
     if type -p dconf > /dev/null; then
-        echo "dconf-tools Installed" >> $log_file
+        echo "dconf-tools installed" >> $log_file
     else
-        echo "dconf-tools FAILED TO INSTALL!!!" >> $log_file
+        echo "dconf-tools FAILED TO INSTALL" >> $log_file
+    fi
+
+    sudo apt-get install silversearcher-ag
+    if type -p ag > /dev/null; then
+        echo "Silver Searcher installed" >> $log_file
+    else
+        echo "Silver Searcher FAILED TO INSTALL" >> $log_file
+    fi
+
+    sudo apt-get install tmux
+    if type -p tmux > /dev/null; then
+        echo "tmux installed" >> $log_file
+    else
+        echo "tmux FAILED TO INSTALL" >> $log_file
     fi
 
     # Install ffmpeg from different ppa
@@ -133,10 +147,6 @@ if [[ $answer = "Y" ]] ; then
     sudo dpkg-reconfigure keyboard-configuration
 fi
 
-# Give a summary of what was installed
-echo -e "\n====== Success!! ======\n"
+# Display results 
 echo -e "\n====== Summary ======\n"
 cat $log_file
-echo
-echo "Enjoy -Misc"
-#rm $log_file
