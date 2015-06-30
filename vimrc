@@ -20,6 +20,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'embear/vim-foldsearch'
+Plugin 'mileszs/ack.vim'
 call vundle#end()                  " required
 filetype plugin indent on          " required
 
@@ -76,7 +77,7 @@ set statusline+=%1*\ %<%F\                                " file+path
 set statusline+=%2*\ %y\                                  " file type
 set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      " encoding
 set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            " encoding2
-set statusline+=%4*\ %{&ff}\                              " file format (dos/unix)
+set statusline+=%4*\ %{&ff}\                              " file format
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             " rownumber/total (%)
 set statusline+=%9*\ col:%03c\                            " column
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      " Modified? Readonly? Top/bot.
@@ -92,10 +93,10 @@ set foldlevel=1
 " zR – open all
 " zM – close all
 
-"-- Customizations for vim-foldsearch
+"-- vim-foldsearch settings
 map <silent> <leader>yo :folddoopen y
 let g:foldsearch_disable_mappings=1     " disable default mappings
-let g:foldsearch_highlight=1        " highlight search results
+let g:foldsearch_highlight=1            " highlight search results
 
 "-- Colorschemes
 autocmd BufEnter *     colorscheme ron
@@ -117,7 +118,7 @@ nnoremap <A-left> :vertical resize -5<CR>  " decrease the width
 nnoremap <A-right> :vertical resize +5<CR> " increase the width
 nnoremap <leader>w :vnew<CR><C-w>l         " create split
 
-"-- Copy, highlight, navigation
+"-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%100v.\+/
 set listchars=tab:▸\ ,eol:¬
@@ -128,6 +129,7 @@ command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
 map <silent> <leader>mp :PDF<CR>
 
 "-- Open common files
+map <silent> <leader>eb :e ~/dotfiles/bashrc<CR>              " bashrc 
 map <silent> <leader>ea :e ~/dotfiles/abbreviations.vim<CR>   " abbreviations
 map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
@@ -147,8 +149,10 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>     " strip whitespace from the
 nmap <leader>p :set paste!<CR>                       " toggle paste mode
 nmap <silent> <leader>/ :nohlsearch<CR>              " clear highlighted search results
 nmap <leader>z z=                                    " show suggested spelling
+map <leader>cc :ccl<CR>                              " close the quickfix window
+map <leader>co :copen<CR>                            " jump to quickfix window
 
-" Function keys
+"-- Function keys
 map <F1> <ESC>
 map <F2> :NERDTreeToggle<CR>
 map <F3> :CtrlPBuffer<CR>
@@ -158,7 +162,7 @@ nnoremap <F8> :set list!<CR>
 nnoremap <F9> :set spell!<CR>
 nnoremap <S-F9> ]s
 
-" CtrlP settings
+"-- CtrlP settings
 nmap <leader>t :CtrlP<CR>
 nmap <leader>r :CtrlPBuffer<CR>
 let g:ctrlp_match_window_bottom = 1
@@ -167,3 +171,9 @@ let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
+
+"-- Ack and Silver Searcher settings
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
