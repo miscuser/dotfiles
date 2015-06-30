@@ -42,32 +42,32 @@ endif
 
 "-- Custom settings
 source ~/dotfiles/abbreviations.vim   " common abbreviations
-set nowrap               " I hate wrapping
+set nowrap                    " wrapping off 
 set textwidth=0
-set hlsearch             " highlight search
-set incsearch            " do incremental searching
-set history=1000         " keep a long list of command lines
-set undolevels=500       " allow a lot of undo activity
-set ruler                " show the cursor position all the time
-set showcmd              " display incomplete commands
-set nostartofline        " do not reset cursor to start of line
-set number               " turn on line numbers
-set incsearch            " make search act like search in modern browsers
-set ic                   " ignore case by default in search
-set scs                  " smart case search (insensitive if all lowercase; sensitive otherwise)
-set clipboard=unnamed    " make the clipboard default to the system clipboard
-set nobackup             " turn off the ~ copy of each file
-set nowritebackup        " don't use the backup files set noswapfile
+set hlsearch                  " highlight search
+set incsearch                 " do incremental searching
+set history=1000              " keep a long command history 
+set undolevels=500            " allow a lot of undo activity
+set ruler                     " show cursor position
+set showcmd                   " display incomplete commands
+set nostartofline             " do not reset cursor to start of line
+set number                    " line numbers
+set incsearch                 " incremental search 
+set ic                        " ignore case by default in search
+set scs                       " smart case search (insensitive if all lowercase; sensitive otherwise)
+set clipboard=unnamed         " default to system clipboard
+set nobackup                  " turn off ~ copy of each file
+set nowritebackup             " don't use backup files 
 set tabstop=4 shiftwidth=4 expandtab  " make tabs reasonable
-set visualbell                " turn off the sounds
-set noerrorbells              " turn off the beeps
-set shortmess+=I              " turn off the welcome screen about Uganda
-set showmatch                 " show matching parenthesis
-let mapleader=","             " change the leader to comma
-set cursorline                " underline the current line
+set visualbell                " disable sounds
+set noerrorbells              " disable beeps
+set shortmess+=I              " disable welcome screen
+set showmatch                 " show matching parentheses
+let mapleader=","             " use comma as leader 
+set cursorline                " underline current line
 set spellsuggest=10
-autocmd BufEnter * lcd %:p:h  " sets the current working directory to the current buffer location
-syntax on                     " turn on syntax coloring
+autocmd BufEnter * lcd %:p:h  " set current working directory to current buffer location
+syntax on                     " syntax coloring
 
 "-- Status line
 set laststatus=2
@@ -109,14 +109,14 @@ noremap <C-PageDown> :cnext<CR>
 noremap <C-PageUp> :cprev<CR>
 
 "-- Split screens
-set splitright                             " puts new split windows on the right
+set splitright                             " opens new splits to the right
 nnoremap <C-h> <C-w>h                      " move left between splits
 nnoremap <C-j> <C-w>j                      " move down between splits
 nnoremap <C-k> <C-w>k                      " move up between splits
 nnoremap <C-l> <C-w>l                      " move right between splits
-nnoremap <A-left> :vertical resize -5<CR>  " decrease the width
-nnoremap <A-right> :vertical resize +5<CR> " increase the width
-nnoremap <leader>w :vnew<CR><C-w>l         " create split
+nnoremap <A-left> :vertical resize -5<CR>  " decrease width
+nnoremap <A-right> :vertical resize +5<CR> " increase width
+nnoremap <leader>w :vnew<CR><C-w>l         " create blank split
 
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -129,7 +129,7 @@ command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
 map <silent> <leader>mp :PDF<CR>
 
 "-- Open common files
-map <silent> <leader>eb :e ~/dotfiles/bashrc<CR>              " bashrc 
+map <silent> <leader>eb :e ~/dotfiles/bashrc<CR>              " bashrc
 map <silent> <leader>ea :e ~/dotfiles/abbreviations.vim<CR>   " abbreviations
 map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
