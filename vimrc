@@ -41,22 +41,22 @@ endif
 
 "-- Custom settings
 source ~/dotfiles/abbreviations.vim   " common abbreviations
-set nowrap               " I hate wrapping
+set nowrap                    " stop wrapping
 set textwidth=0
-set hlsearch             " highlight search
-set incsearch            " do incremental searching
-set history=1000         " keep a long list of command lines
-set undolevels=500       " allow a lot of undo activity
-set ruler                " show the cursor position all the time
-set showcmd              " display incomplete commands
-set nostartofline        " do not reset cursor to start of line
-set number               " turn on line numbers
-set incsearch            " make search act like search in modern browsers
-set ignorecase           " ignore case by default
-set smartcase            " intelligent search (insensitive if all lowercase; sensitive otherwise)
-set clipboard=unnamed    " make the clipboard default to the system clipboard
-set nobackup             " turn off the ~ copy of each file
-set nowritebackup        " don't use the backup files set noswapfile
+set hlsearch                  " highlight search
+set incsearch                 " do incremental searching
+set history=1000              " keep a long list of command lines
+set undolevels=500            " allow a lot of undo activity
+set ruler                     " show the cursor position all the time
+set showcmd                   " display incomplete commands
+set nostartofline             " do not reset cursor to start of line
+set number                    " turn on line numbers
+set incsearch                 " make search act like search in modern browsers
+set ignorecase                " ignore case by default
+set smartcase                 " intelligent search (insensitive if all lowercase; sensitive otherwise)
+set clipboard=unnamed         " make the clipboard default to the system clipboard
+set nobackup                  " turn off the ~ copy of each file
+set nowritebackup             " don't use the backup files set noswapfile
 set tabstop=4 shiftwidth=4 expandtab  " make tabs reasonable
 set visualbell                " turn off the sounds
 set noerrorbells              " turn off the beeps
