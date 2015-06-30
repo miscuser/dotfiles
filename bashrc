@@ -27,7 +27,13 @@ bind '"\e[B":history-search-forward'     # arrow keys for history search
 bind TAB:menu-complete
 
 #===============================================================================
-#  Aliases
+# Common typos 
+#===============================================================================
+alias vom='vim'
+alias wim='vim'
+
+#===============================================================================
+#  Aliases - general 
 #===============================================================================
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
@@ -36,7 +42,6 @@ alias la='ls -la'
 alias lls='ls -lhSR'
 alias lla='ls -laSR'
 alias grep='grep --color'
-alias vom='vim'
 alias vimr='vim -M'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -52,7 +57,10 @@ alias upgrade='sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias mini='sudo service minidlna force-reload'
 alias home='cd ~'
-# work only
+
+#===============================================================================
+#  Aliases - work 
+#===============================================================================
 alias code='cd /cygdrive/c/home/code'
 alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper.sh'
 alias testing='cd /cygdrive/c/testing'
