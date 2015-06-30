@@ -42,7 +42,7 @@ endif
 
 "-- Custom settings
 source ~/dotfiles/abbreviations.vim   " common abbreviations
-set term=xterm-256color
+set term=xterm-256color       " allow for fancy colors
 set nowrap                    " wrapping off 
 set textwidth=0
 set hlsearch                  " highlight search
