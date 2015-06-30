@@ -42,6 +42,7 @@ endif
 
 "-- Custom settings
 source ~/dotfiles/abbreviations.vim   " common abbreviations
+set term=xterm-256color
 set nowrap                    " wrapping off 
 set textwidth=0
 set hlsearch                  " highlight search
@@ -99,7 +100,8 @@ let g:foldsearch_disable_mappings=1     " disable default mappings
 let g:foldsearch_highlight=1            " highlight search results
 
 "-- Colorschemes
-autocmd BufEnter *     colorscheme ron
+"autocmd BufEnter *     colorscheme ron
+autocmd BufEnter *     colorscheme badwolf 
 autocmd BufEnter *.txt colorscheme murphy
 
 "-- Tabs and buffers
@@ -178,4 +180,5 @@ let g:ctrlp_switch_buffer = 0
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
 
