@@ -100,7 +100,6 @@ let g:foldsearch_disable_mappings=1     " disable default mappings
 let g:foldsearch_highlight=1            " highlight search results
 
 "-- Colorschemes
-"autocmd BufEnter *     colorscheme ron
 autocmd BufEnter *     colorscheme badwolf 
 autocmd BufEnter *.txt colorscheme murphy
 
