@@ -168,20 +168,20 @@ set nobackup
 set noswapfile
 
 if has('persistent_undo')
-  set undodir=~/.vim/tmp/undo//     " undo files
-  if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), "p")
-  endif
+    set undodir=~/.vim/tmp/undo//     " undo files
+    if !isdirectory(expand(&undodir))
+        call mkdir(expand(&undodir), "p")
+    endif
 endif
 
 set backupdir=~/.vim/tmp/backup//   " backups
 if !isdirectory(expand(&backupdir))
-  call mkdir(expand(&backupdir), "p")
+    call mkdir(expand(&backupdir), "p")
 endif
 
 set directory=~/.vim/tmp/swap       " swap files
 if !isdirectory(expand(&directory))
-  call mkdir(expand(&directory), "p")
+    call mkdir(expand(&directory), "p")
 endif
 
 "-- Scrolling
