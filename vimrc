@@ -175,9 +175,10 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 
-"-- Ack and Silver Searcher settings
+"-- Silver Searcher settings (ack and ctrlp)
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 
