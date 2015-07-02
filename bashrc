@@ -251,7 +251,7 @@ function opn()
     if [ "$(uname)" == "Darwin" ]; then
         echo "configure this"
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        gnome-open "$1"
+        xdg-open "$1"
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
         echo "configure this"
     fi
