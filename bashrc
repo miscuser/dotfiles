@@ -95,6 +95,7 @@ function custom() {
     echo "   nightly <<-- run nightly backup"
     echo "     mvnzb <<-- move nzb files to correct directory"
     echo "      docs <<-- change to documents folder"
+    echo "       ffc <<-- find file containing pattern"
     echo "        ff <<-- find file with pattern in name"
     echo "        fd <<-- find directory with pattern in name"
     echo "        dl <<-- change to download folder"
@@ -187,7 +188,6 @@ function extract()
 #-------------------------------------------------------------------------------
 function ff() 
 { 
-    # Find files and omit errors (e.g. permission denied)
     find . -type f -iname '*'"$*"'*' -ls 2>/dev/null 
 }
 
@@ -198,6 +198,19 @@ function fd()
 { 
     # Find directories and omit errors (e.g. permission denied)
     find . -type d -iname '*'"$*"'*' -ls 2>/dev/null 
+}
+
+#-------------------------------------------------------------------------------
+#  Find a file containing pattern 
+#-------------------------------------------------------------------------------
+function ffc() 
+{ 
+    # Find files and Omit errors (e.g. permission denied)
+    if hash ag 2>/dev/null; then
+        ag -li "$*" 2>/dev/null
+    else
+        echo "Install Silver Searcher (Ag) first" 
+    fi
 }
 
 #-------------------------------------------------------------------------------
