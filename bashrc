@@ -1,12 +1,12 @@
-# Misc bash configuration 
+# Misc bash configuration
 
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
 #===============================================================================
-#  Common stuff 
+#  Common stuff
 #===============================================================================
-export EDITOR=vim  
+export EDITOR=vim
 PATH=$PATH:~/bin
 
 #===============================================================================
@@ -15,7 +15,7 @@ PATH=$PATH:~/bin
 HISTIGNORE="&:ls:[bf]g:exit:lf:ldir"
 export HISTCONTROL=ignoredups
 shopt -s histverify
-export HISTSIZE= 
+export HISTSIZE=
 export HISTFILESIZE=
 #export HISTTIMEFORMAT="[%F %T] "
 export HISTTIMEFORMAT="[%F] "
@@ -28,13 +28,13 @@ bind '"\e[B":history-search-forward'     # arrow keys for history search
 bind TAB:menu-complete
 
 #===============================================================================
-#  Common typos 
+#  Common typos
 #===============================================================================
 alias vom='vim'
 alias wim='vim'
 
 #===============================================================================
-#  Aliases - general 
+#  Aliases - general
 #===============================================================================
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
@@ -61,7 +61,7 @@ alias home='cd ~'
 alias dots='cd ~/dotfiles'
 
 #===============================================================================
-#  Aliases - work 
+#  Aliases - work
 #===============================================================================
 alias code='cd /cygdrive/c/home/code'
 alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper.sh'
@@ -86,7 +86,7 @@ function custom() {
     echo "      push <<-- git push origin master"
     echo "      mini <<-- restart minidlna"
     echo ""
-    echo "###########   WORK   #############" 
+    echo "###########   WORK   #############"
     echo "       ocz <<-- OneCard zipper - archives extract files"
     echo "      code <<-- change to code directory"
     echo "     phone <<-- search for phone number"
@@ -97,6 +97,7 @@ function custom() {
     echo "     mvnzb <<-- move nzb files to correct directory"
     echo "      docs <<-- change to documents folder"
     echo "       ffc <<-- find file containing pattern"
+    echo "       opn <<-- open file from terminal"
     echo "        ff <<-- find file with pattern in name"
     echo "        fd <<-- find directory with pattern in name"
     echo "        dl <<-- change to download folder"
@@ -104,7 +105,7 @@ function custom() {
 }
 
 #-------------------------------------------------------------------------------
-#  Runs nightly backup 
+#  Runs nightly backup
 #-------------------------------------------------------------------------------
 function nightly()
 {
@@ -112,7 +113,7 @@ function nightly()
 }
 
 #-------------------------------------------------------------------------------
-#  Change to download folder 
+#  Change to download folder
 #-------------------------------------------------------------------------------
 function dl()
 {
@@ -126,7 +127,7 @@ function dl()
 }
 
 #-------------------------------------------------------------------------------
-#  Change to documents folder 
+#  Change to documents folder
 #-------------------------------------------------------------------------------
 function docs()
 {
@@ -135,12 +136,12 @@ function docs()
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
         cd ~/Documents
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
-        echo "You need to set the page" 
+        echo "You need to set the page"
     fi
 }
 
 #-------------------------------------------------------------------------------
-#  Search for phone number 
+#  Search for phone number
 #-------------------------------------------------------------------------------
 function phone()
 {
@@ -151,9 +152,9 @@ function phone()
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
         pfile='/cygdrive/c/home/reference/phone.txt'
     fi
-    
+
     if [ -f $pfile ] ; then
-        grep -i $1 $pfile 
+        grep -i $1 $pfile
     else
         echo "$pfile does not exist"
     fi
@@ -185,32 +186,32 @@ function extract()
 }
 
 #-------------------------------------------------------------------------------
-#  Find a file with pattern in name 
+#  Find a file with pattern in name
 #-------------------------------------------------------------------------------
-function ff() 
-{ 
-    find . -type f -iname '*'"$*"'*' -ls 2>/dev/null 
+function ff()
+{
+    find . -type f -iname '*'"$*"'*' -ls 2>/dev/null
 }
 
 #-------------------------------------------------------------------------------
-#  Find a directory with pattern in name 
+#  Find a directory with pattern in name
 #-------------------------------------------------------------------------------
-function fd() 
-{ 
+function fd()
+{
     # Find directories and omit errors (e.g. permission denied)
-    find . -type d -iname '*'"$*"'*' -ls 2>/dev/null 
+    find . -type d -iname '*'"$*"'*' -ls 2>/dev/null
 }
 
 #-------------------------------------------------------------------------------
-#  Find a file containing pattern 
+#  Find a file containing pattern
 #-------------------------------------------------------------------------------
-function ffc() 
-{ 
+function ffc()
+{
     # Find files and Omit errors (e.g. permission denied)
     if hash ag 2>/dev/null; then
         ag -li "$*" 2>/dev/null
     else
-        echo "Install Silver Searcher (Ag) first" 
+        echo "Install Silver Searcher (Ag) first"
     fi
 }
 
@@ -250,7 +251,7 @@ function opn()
     if [ "$(uname)" == "Darwin" ]; then
         echo "configure this"
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        gnome-open "$1" 
+        gnome-open "$1"
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
         echo "configure this"
     fi
