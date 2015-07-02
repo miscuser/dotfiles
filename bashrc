@@ -58,6 +58,7 @@ alias upgrade='sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias mini='sudo service minidlna force-reload'
 alias home='cd ~'
+alias dots='cd ~/dotfiles'
 
 #===============================================================================
 #  Aliases - work 
