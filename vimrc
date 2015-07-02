@@ -118,7 +118,7 @@ nnoremap <A-right> :vertical resize +5<CR> " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
 
-"-- Move line(s) up or down via C-j and C-k respectively 
+"-- Move line(s) up or down
 " Normal mode
 nnoremap <S-C-j> :m .+1<CR>==
 nnoremap <S-C-k> :m .-2<CR>==
