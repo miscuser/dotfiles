@@ -149,8 +149,9 @@ map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
 
 "-- Open common files
-map <silent> <leader>eb :e ~/dotfiles/bashrc<CR>              " bashrc
 map <silent> <leader>ea :e ~/dotfiles/abbreviations.vim<CR>   " abbreviations
+map <silent> <leader>eb :e ~/dotfiles/bashrc<CR>              " bashrc
+map <silent> <leader>et :e ~/dotfiles/tmux.conf<CR>           " tmux 
 
 "-- Python
 command PyRun ! python %

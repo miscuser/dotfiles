@@ -48,9 +48,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias gc='git commit -m'
-alias ga='git add'
-alias gs='git status'
 alias push='git push origin master'
 alias pull='git pull'
 alias bye='sudo shutdown -h now'
@@ -60,6 +57,16 @@ alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias mini='sudo service minidlna force-reload'
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
+
+# git 
+alias gc='git commit -m'
+alias ga='git add'
+alias gs='git status'
+
+# tmux
+alias tlist='tmux list-sessions'
+alias tat='tmux attach -t $1'
+alias tnew='tmux new-session -s $1'
 
 #===============================================================================
 #  Aliases - work
