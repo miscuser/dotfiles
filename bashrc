@@ -272,7 +272,7 @@ function opn()
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         xdg-open "$1"
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
-        echo "configure this"
+        cygstart "$1" 
     fi
 }
 
@@ -288,3 +288,5 @@ function tlistc()
 
     tmux att -t "$SESS"
 }
+
+
