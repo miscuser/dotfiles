@@ -68,6 +68,7 @@ alias gs='git status'
 alias tlist='tmux list-sessions'
 alias tat='tmux attach -t $1'
 alias tnew='tmux new-session -s $1'
+alias tkill='tmux kill-session -t $1'
 
 #===============================================================================
 #  Aliases - work
@@ -105,6 +106,7 @@ function custom() {
     echo ""
     echo "###########  tmux"
     echo "     tlist <<-- list tmux sessions"
+    echo "     tkill <<-- kill tmux sessions"
     echo "       tat <<-- tmux attach"
     echo "      tnew <<-- create new tmux session"
     echo ""
@@ -272,4 +274,17 @@ function opn()
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
         echo "configure this"
     fi
+}
+
+#-------------------------------------------------------------------------------
+#  Select tmux session from list - requires iselect 
+#-------------------------------------------------------------------------------
+function tlistc()
+{
+    CHOICE=`tmux ls | iselect -a`
+    [[ ${#CHOICE} == 0 ]] && exit 0 # Just exit if nothing selected
+
+    SESS=${CHOICE/:*/}
+
+    tmux att -t "$SESS"
 }
