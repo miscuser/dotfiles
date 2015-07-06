@@ -198,7 +198,6 @@ map <leader>cc :ccl<CR>                              " close the quickfix window
 map <leader>co :copen<CR>                            " jump to quickfix window
 map <leader>a :Ack!
 map <leader>i :set list!<CR>                         " toggle listchars on/off
-map <Leader>p :set paste<CR>o<ESC>"*]p:set nopaste<CR>  "better pasting from clipboard
 map <leader>e :edit!<CR>                             " reload current file
 
 "-- Function keys
