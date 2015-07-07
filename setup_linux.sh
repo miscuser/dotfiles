@@ -10,15 +10,23 @@ dotfiles_dir=~/dotfiles                           # Dotfiles directory
 log_file=~/install_progress_log.txt
 
 # Alias dotfiles in home directory 
-echo -n "Would you like to configure your dotfiles (Y/n) => "; read answer
+echo -n "Would you like to configure your symlinks (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
     sudo chmod +x ~/dotfiles/makesymlinks.sh
     sudo ~/dotfiles/makesymlinks.sh
     cd ~
 fi
 
+# Clone other repositories 
+echo -n "Would you like to clone your other repos (Y/n) => "; read answer
+if [[ $answer = "Y" ]] ; then
+    git clone git://github.com/miscuser/bin.git ~/bin
+    git clone git://github.com/miscuser/colors.git ~/.vim/colors
+    git clone git://github.com/miscuser/scripts.git ~/scripts
+fi
+
 # Prompt to install regularly used packages 
-echo -n "Would you like to install additional packages for this setup (Y/n) => "; read answer
+echo -n "Would you like to install your usual packages (Y/n) => "; read answer
 if [[ $answer = "Y" ]] ; then
 
     sudo apt-get -y install avidemux
