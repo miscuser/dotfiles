@@ -59,6 +59,7 @@ alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias mini='sudo service minidlna force-reload'
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
+alias drop='cd ~/Dropbox'
 
 # git 
 alias gc='git commit -m'
