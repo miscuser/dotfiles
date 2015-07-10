@@ -210,6 +210,7 @@ set pastetoggle=<F8>
 nnoremap <F9> :set spell!<CR>
 nnoremap <S-F9> ]s
 nnoremap <F10> :set relativenumber!<CR>
+map <F12> :r! date "+\%Y-\%m-\%d"<CR>
 
 "-- CtrlP settings
 nmap <leader>t :CtrlP<CR>
