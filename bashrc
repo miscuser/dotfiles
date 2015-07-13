@@ -211,7 +211,8 @@ function extract()
 #-------------------------------------------------------------------------------
 function ff()
 {
-    find . -type f -iname '*'"$*"'*' -ls 2>/dev/null
+    # Using -not -iwholename to ignore .git folders. Remove that to restore.
+    find . -not -iwholename '*.git*' -type f -iname '*'"$*"'*' -ls 2>/dev/null
 }
 
 #-------------------------------------------------------------------------------
@@ -220,7 +221,8 @@ function ff()
 function fd()
 {
     # Find directories and omit errors (e.g. permission denied)
-    find . -type d -iname '*'"$*"'*' -ls 2>/dev/null
+    # Using -not -iwholename to ignore .git folders. Remove that to restore.
+    find . -not -iwholename '*.git*' -type d -iname '*'"$*"'*' -ls 2>/dev/null
 }
 
 #-------------------------------------------------------------------------------
