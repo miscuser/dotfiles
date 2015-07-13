@@ -92,7 +92,7 @@ function custom() {
     echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
     echo "   upgrade <<-- sudo apt-get upgrade"
     echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
-    echo "      pull <<-- git pull"
+    echo "      pull <<-- git pull origin master"
     echo "      push <<-- git push origin master"
     echo "      mini <<-- restart minidlna"
     echo ""
