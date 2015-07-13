@@ -5,8 +5,6 @@
 
 # ** add option to install wallpaper
 
-
-dotfiles_dir=~/dotfiles                           # Dotfiles directory
 log_file=~/install_progress_log.txt
 
 # Alias dotfiles in home directory 
