@@ -84,7 +84,7 @@ alias testing='cd /cygdrive/c/testing'
 #===============================================================================
 
 #-------------------------------------------------------------------------------
-#  Prints out my alias commands and functions
+#  Prints out my aliases and functions
 #-------------------------------------------------------------------------------
 function custom() {
     echo "###########  aliases"
