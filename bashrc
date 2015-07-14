@@ -76,7 +76,7 @@ alias tkill='tmux kill-session -t $1'
 #  Aliases - work
 #===============================================================================
 alias code='cd /cygdrive/c/home/code'
-alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper.sh'
+alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper'
 alias testing='cd /cygdrive/c/testing'
 
 #===============================================================================
