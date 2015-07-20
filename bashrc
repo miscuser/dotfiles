@@ -1,4 +1,4 @@
-# Misc bash configuration
+# Misc's bash configuration
 
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
@@ -13,13 +13,14 @@ export TERM=xterm-256color
 #===============================================================================
 #  History settings
 #===============================================================================
-HISTIGNORE="&:ls:[bf]g:exit:lf:ldir"
-export HISTCONTROL=ignoredups
-shopt -s histverify
-export HISTSIZE=
-export HISTFILESIZE=
-#export HISTTIMEFORMAT="[%F %T] "
+#  Ignore some of the short commands I use frequently.
+export HISTIGNORE="&:ls:[bf]g:exit:lf:ldir:home:thor:c:lt:gs:tlist:code:cz:testing:tm:drop:dots:mini:nightly:note"
+export HISTCONTROL="ignoredups:ignoreboth"
+export HISTSIZE=100000
+export HISTFILESIZE=500000
 export HISTTIMEFORMAT="[%F] "
+shopt -s histappend
+shopt -s histverify
 
 #===============================================================================
 #  Key bindings
@@ -29,13 +30,7 @@ bind '"\e[B":history-search-forward'     # arrow keys for history search
 bind TAB:menu-complete
 
 #===============================================================================
-#  Common typos
-#===============================================================================
-alias vom='vim'
-alias wim='vim'
-
-#===============================================================================
-#  Aliases - general
+#  Aliases
 #===============================================================================
 alias lt='ls -ltr'
 alias lf="ls -l | egrep -v '^d'"
@@ -44,6 +39,7 @@ alias ll='ls -lh'
 alias la='ls -la'
 alias lls='ls -lhSR'
 alias lla='ls -laSR'
+alias thor='ls -thor'
 alias grep='grep --color'
 alias vimr='vim -M'
 alias ..='cd ..'
@@ -57,9 +53,18 @@ alias update='sudo apt-get update && sudo apt-get upgrade'
 alias upgrade='sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias mini='sudo service minidlna force-reload'
+
+# common typos
+alias vom='vim'
+alias wim='vim'
+
+# change to commonly used directories 
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
 alias drop='cd ~/Dropbox'
+
+# start local webserver to share files
+alias webshare='python -m SimpleHTTPServer'
 
 # git 
 alias gc='git commit -m'
@@ -118,11 +123,11 @@ function custom() {
     echo "     mvnzb <<-- move nzb files to correct directory"
     echo "      docs <<-- change to documents folder"
     echo "       ffc <<-- find file containing pattern"
-    echo "       opn <<-- open file from terminal"
     echo "        ff <<-- find file with pattern in name"
     echo "        fd <<-- find directory with pattern in name"
     echo "        dl <<-- change to download folder"
     echo "         c <<-- clear the terminal screen"
+    echo "         o <<-- open file from terminal"
 }
 
 #-------------------------------------------------------------------------------
@@ -269,7 +274,7 @@ function mvnzb()
 #-------------------------------------------------------------------------------
 #  Open file from command line
 #-------------------------------------------------------------------------------
-function opn()
+function o()
 {
     if [ "$(uname)" == "Darwin" ]; then
         echo "configure this"
