@@ -92,7 +92,8 @@ alias testing='cd /cygdrive/c/testing'
 #  Use python as a calculator by including the math library
 #-------------------------------------------------------------------------------
 calc(){
-    python -c "from math import *; print($*)"
+    #python3 -c "from math import *; print($*)"
+    python -c "from __future__ import division; from math import *; print($*)"
 }
 
 #-------------------------------------------------------------------------------
