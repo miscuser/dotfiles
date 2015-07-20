@@ -9,7 +9,6 @@
 export EDITOR=vim
 PATH=$PATH:~/bin
 export TERM=xterm-256color
-export GREP_OPTIONS='--color=auto'
 
 #===============================================================================
 #  History settings
@@ -42,6 +41,7 @@ alias lls='ls -lhSR'
 alias lla='ls -laSR'
 alias thor='ls -thor'
 alias vimr='vim -M'
+alias grep='grep --color'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
