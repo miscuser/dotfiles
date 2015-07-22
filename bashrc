@@ -42,6 +42,7 @@ alias lla='ls -laSR'
 alias thor='ls -thor'
 alias vimr='vim -M'
 alias grep='grep --color'
+alias trash='mv -t ~/.trash --backup=t'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -309,16 +310,31 @@ function o()
 }
 
 #-------------------------------------------------------------------------------
-#  Select tmux session from list - requires iselect 
+#  Save some typing when using awk. 
 #-------------------------------------------------------------------------------
-function tlistc()
-{
-    CHOICE=`tmux ls | iselect -a`
-    [[ ${#CHOICE} == 0 ]] && exit 0 # Just exit if nothing selected
+function fawk() {
+    USAGE="\
+usage:  fawk [<awk_args>] <field_no>
+        Ex: getent passwd | grep andy | fawk -F: 5
+"
+    if [ $# -eq 0 ]; then
+        echo -e "$USAGE" >&2
+        return
+    fi
 
-    SESS=${CHOICE/:*/}
+    # Bail if the last argument isn't a number.
+    last=${@:(-1)}
+    if ! [ $last -eq $last ] &>/dev/null; then
+        echo "FAWK! Last argument (awk field) must be numeric." >&2
+        echo -e "$USAGE" >&2;
+        return
+    fi
 
-    tmux att -t "$SESS"
-}
-
-
+    if [ $# -gt 1 ]; then
+        # Get the last argument.
+        rest=${@:1:$(( $# - 1 ))}
+    else
+        rest='' # Just to be sure.
+    fi
+    awk $rest "{ print  \$$last }"
+} 
