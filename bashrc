@@ -43,11 +43,6 @@ alias thor='ls -thor'
 alias vimr='vim -M'
 alias grep='grep --color'
 alias trash='mv -t ~/.trash --backup=t'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
 alias push='git push origin master'
 alias pull='git pull origin master'
 alias bye='sudo shutdown -h now'
@@ -56,9 +51,16 @@ alias upgrade='sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
 alias mini='sudo service minidlna force-reload'
 
+# make directory traversal easier
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
 # common typos
 alias vom='vim'
 alias wim='vim'
+alias cd..='cd ..'
 
 # change to commonly used directories 
 alias home='cd ~'
