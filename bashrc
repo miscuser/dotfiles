@@ -92,6 +92,9 @@ alias testing='cd /cygdrive/c/testing'
 #  FUNCTIONS
 #===============================================================================
 
+# short utilities 
+function rot13() { echo "$@" | tr a-zA-Z n-za-mN-ZA-M; }
+
 #-------------------------------------------------------------------------------
 #  Use python as a calculator by including the math library
 #-------------------------------------------------------------------------------

@@ -131,6 +131,10 @@ inoremap <C-k> <ESC>:m .-2<CR>==gi
 vnoremap <S-C-j> :m '>+1<CR>gv=gv
 vnoremap <S-C-k> :m '<-2<CR>gv=gv
 
+"-- Insert blank lines above/below in normal mode
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>k
+
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%100v.\+/
