@@ -61,6 +61,7 @@ alias .....='cd ../../../..'
 alias vom='vim'
 alias wim='vim'
 alias cd..='cd ..'
+alias o.='o .'
 
 # change to commonly used directories 
 alias home='cd ~'
