@@ -276,7 +276,7 @@ function fd()
 #-------------------------------------------------------------------------------
 function ffc()
 {
-    # Find files and Omit errors (e.g. permission denied)
+    # Find files and omit errors (e.g. permission denied)
     if hash ag 2>/dev/null; then
         ag -li "$*" 2>/dev/null
     else
