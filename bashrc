@@ -67,6 +67,10 @@ alias home='cd ~'
 alias dots='cd ~/dotfiles'
 alias drop='cd ~/Dropbox'
 
+# YouTube stuff
+alias yto='o ~/Downloads/youtube'
+alias ytd='cd ~/Downloads/youtube'
+
 # start local webserver to share files
 alias webshare='python -m SimpleHTTPServer'
 
@@ -158,14 +162,6 @@ function custom() {
 function nightly()
 {
     /home/misc/scripts/nightly_backup.sh
-}
-
-#-------------------------------------------------------------------------------
-#  Calls youtube downloader 
-#-------------------------------------------------------------------------------
-function youtube()
-{
-    /home/misc/scripts/youtube_downloader.sh
 }
 
 #-------------------------------------------------------------------------------
