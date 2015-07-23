@@ -32,6 +32,7 @@ bind TAB:menu-complete
 #===============================================================================
 #  Aliases
 #===============================================================================
+# general file listing
 alias lt='ls -ltr'
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
@@ -40,16 +41,29 @@ alias la='ls -la'
 alias lls='ls -lhSR'
 alias lla='ls -laSR'
 alias thor='ls -thor'
-alias vimr='vim -M'
 alias grep='grep --color'
+
+# save file instead of deleting it
 alias trash='mv -t ~/.trash --backup=t'
+
+# open vim in read-only mode -M modify; -R read-only
+alias vimm='vim -M'
+alias vimr='vim -R'
+
+# git commands
 alias push='git push origin master'
 alias pull='git pull origin master'
+
+# general computer
 alias bye='sudo shutdown -h now'
+
+# restart minidlna to reindex
+alias mini='sudo service minidlna force-reload'
+
+# apt-get
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias upgrade='sudo apt-get upgrade'
 alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
-alias mini='sudo service minidlna force-reload'
 
 # make directory traversal easier
 alias ..='cd ..'
