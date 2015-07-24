@@ -47,8 +47,8 @@ alias grep='grep --color'
 alias trash='mv -t ~/.trash --backup=t'
 
 # open vim in read-only mode -M modify; -R read-only
-alias vimm='vim -M'
-alias vimr='vim -R'
+alias vimr='vim -M'
+alias vimR='vim -R'
 
 # general computer
 alias bye='sudo shutdown -h now'
