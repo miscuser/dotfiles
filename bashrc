@@ -50,10 +50,6 @@ alias trash='mv -t ~/.trash --backup=t'
 alias vimm='vim -M'
 alias vimr='vim -R'
 
-# git commands
-alias push='git push origin master'
-alias pull='git pull origin master'
-
 # general computer
 alias bye='sudo shutdown -h now'
 
@@ -93,6 +89,8 @@ alias webshare='python -m SimpleHTTPServer'
 alias gc='git commit -m'
 alias ga='git add'
 alias gs='git status'
+alias push='git push origin master'
+alias pull='git pull origin master'
 
 # tmux
 alias tlist='tmux list-sessions'
@@ -126,7 +124,7 @@ calc(){
 #  Change to directory immediately after creating it. 
 #-------------------------------------------------------------------------------
 function mkdircd() { 
-mkdir -p "$@" && eval cd "\"\$$#\""; 
+    mkdir -p "$@" && eval cd "\"\$$#\""; 
 }
 
 #-------------------------------------------------------------------------------
