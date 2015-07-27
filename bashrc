@@ -14,7 +14,7 @@ export TERM=xterm-256color
 #  History settings
 #===============================================================================
 #  Ignore some of the short commands I use frequently.
-export HISTIGNORE="&:ls:[bf]g:exit:lf:ldir:home:thor:c:lt:gs:tlist:code:cz:testing:tm:drop:dots:mini:nightly:note:la:push:pull:vim[rR]:yt:note"
+export HISTIGNORE="&:ls:[bf]g:exit:lf:ldir:home:thor:c:lt:gs:tlist:code:cz:testing:tm:drop:dots:mini:nightly:note:la:push:pull:vim[rR]:yt:note:history:bash:ocz"
 export HISTCONTROL="ignoredups:ignoreboth"
 export HISTSIZE=100000
 export HISTFILESIZE=500000
