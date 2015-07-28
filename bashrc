@@ -98,9 +98,7 @@ alias tat='tmux attach -t $1'
 alias tnew='tmux new-session -s $1'
 alias tkill='tmux kill-session -t $1'
 
-#===============================================================================
-#  Aliases - work
-#===============================================================================
+# work
 alias code='cd /cygdrive/c/home/code'
 alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper'
 alias testing='cd /cygdrive/c/testing'
@@ -108,6 +106,41 @@ alias testing='cd /cygdrive/c/testing'
 #===============================================================================
 #  FUNCTIONS
 #===============================================================================
+
+#-------------------------------------------------------------------------------
+#  Prints a description of some aliases and functions
+#-------------------------------------------------------------------------------
+function custom() {
+    echo "###########  aliases"
+    echo "       bye <<-- shut down the computer"
+    echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
+    echo "   upgrade <<-- sudo apt-get upgrade"
+    echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
+    echo "      pull <<-- git pull origin master"
+    echo "      push <<-- git push origin master"
+    echo "      mini <<-- restart minidlna"
+    echo ""
+    echo "###########  tmux"
+    echo "     tlist <<-- list tmux sessions"
+    echo "     tkill <<-- kill tmux sessions"
+    echo "       tat <<-- tmux attach"
+    echo "      tnew <<-- create new tmux session"
+    echo ""
+    echo "###########  functions"
+    echo "   extract <<-- extract the most common compression types"
+    echo "   nightly <<-- run nightly backup"
+    echo "   mkdircd <<-- create directory and cd to it"
+    echo "     mvnzb <<-- move nzb files to correct directory"
+    echo "     phone <<-- search for phone number"
+    echo "      docs <<-- change to documents folder"
+    echo "      calc <<-- Python calculator"
+    echo "       ffc <<-- find file containing pattern"
+    echo "        ff <<-- find file with pattern in name"
+    echo "        fd <<-- find directory with pattern in name"
+    echo "        dl <<-- change to download folder"
+    echo "         c <<-- clear the terminal screen"
+    echo "         o <<-- open file from terminal"
+}
 
 # short utilities 
 function rot13() { echo "$@" | tr a-zA-Z n-za-mN-ZA-M; }
@@ -125,48 +158,6 @@ calc(){
 #-------------------------------------------------------------------------------
 function mkdircd() { 
     mkdir -p "$@" && eval cd "\"\$$#\""; 
-}
-
-#-------------------------------------------------------------------------------
-#  Prints out my aliases and functions
-#-------------------------------------------------------------------------------
-function custom() {
-    echo "###########  aliases"
-    echo "       bye <<-- shut down the computer"
-    echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
-    echo "   upgrade <<-- sudo apt-get upgrade"
-    echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
-    echo "      pull <<-- git pull origin master"
-    echo "      push <<-- git push origin master"
-    echo "      mini <<-- restart minidlna"
-    echo ""
-    echo "###########  work"
-    echo "       ocz <<-- OneCard zipper - archives extract files"
-    echo "      code <<-- change to code directory"
-    echo "     phone <<-- search for phone number"
-    echo ""
-    echo "###########  git"
-    echo "        gc <<-- git commit -m"
-    echo "        ga <<-- git add"
-    echo "        gs <<-- git status"
-    echo ""
-    echo "###########  tmux"
-    echo "     tlist <<-- list tmux sessions"
-    echo "     tkill <<-- kill tmux sessions"
-    echo "       tat <<-- tmux attach"
-    echo "      tnew <<-- create new tmux session"
-    echo ""
-    echo "###########  functions"
-    echo "   extract <<-- extract the most common compression types"
-    echo "   nightly <<-- run nightly backup"
-    echo "     mvnzb <<-- move nzb files to correct directory"
-    echo "      docs <<-- change to documents folder"
-    echo "       ffc <<-- find file containing pattern"
-    echo "        ff <<-- find file with pattern in name"
-    echo "        fd <<-- find directory with pattern in name"
-    echo "        dl <<-- change to download folder"
-    echo "         c <<-- clear the terminal screen"
-    echo "         o <<-- open file from terminal"
 }
 
 #-------------------------------------------------------------------------------
