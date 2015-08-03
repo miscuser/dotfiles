@@ -15,7 +15,7 @@ IGNOREEOF=2                              # shell exists after 2nd consecutive Ct
 #  History settings
 #===============================================================================
 #  Ignore some of the short commands I use frequently.
-export HISTIGNORE="&:ls:[bf]g:exit:lf:ldir:home:thor:c:lt:gs:tlist:code:cz:testing:tm:drop:dots:mini:nightly:note:la:push:pull:vim[rR]:yt:note:history:bash:ocz:note list: note date:"
+export HISTIGNORE="&:ls:[bf]g:exit:lf:ldir:home:thor:c:lt:gs:tlist:code:cz:testing:tm:drop:dots:mini:nightly:la:push:pull:vim[rR]:yt:note:history:bash:ocz:note list: note date:"
 export HISTCONTROL="ignoredups:ignoreboth"
 export HISTSIZE=100000
 export HISTFILESIZE=500000
