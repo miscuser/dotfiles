@@ -103,6 +103,7 @@ alias tkill='tmux kill-session -t $1'
 alias code='cd /cygdrive/c/home/code'
 alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper'
 alias testing='cd /cygdrive/c/testing'
+alias haskell='ghc --interactive'
 
 #===============================================================================
 #  FUNCTIONS
