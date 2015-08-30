@@ -132,6 +132,7 @@ function custom() {
     echo "   extract <<-- extract the most common compression types"
     echo "   nightly <<-- run nightly backup"
     echo "   mkdircd <<-- create directory and cd to it"
+    echo "     renew <<-- renew IP address"
     echo "     mvnzb <<-- move nzb files to correct directory"
     echo "     phone <<-- search for phone number"
     echo "      docs <<-- change to documents folder"
@@ -346,3 +347,11 @@ usage:  fawk [<awk_args>] <field_no>
     fi
     awk $rest "{ print  \$$last }"
 } 
+
+#-------------------------------------------------------------------------------
+#  Renew IP address 
+#-------------------------------------------------------------------------------
+function renew() {
+    sudo dhclient -r wlan0
+    sudo dhclient wlan0
+}
