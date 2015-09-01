@@ -22,6 +22,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'embear/vim-foldsearch'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'davidhalter/jedi-vim'
 call vundle#end()                  " required
 filetype plugin indent on          " required
 
