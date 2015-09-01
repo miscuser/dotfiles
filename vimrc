@@ -21,6 +21,7 @@ Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'embear/vim-foldsearch'
 Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/syntastic'
 call vundle#end()                  " required
 filetype plugin indent on          " required
 
@@ -247,3 +248,15 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
+
+" syntastic settings
+let g:syntastic_python_pylint_post_args="--max-line-length=120"
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_checkers=['flake8']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
