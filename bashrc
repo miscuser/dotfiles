@@ -352,6 +352,13 @@ usage:  fawk [<awk_args>] <field_no>
 #  Renew IP address 
 #-------------------------------------------------------------------------------
 function renew() {
-    sudo dhclient -r wlan0
-    sudo dhclient wlan0
+    if [ "$(uname)" == "Darwin" ]; then
+        echo "configure this"
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        sudo dhclient -r wlan0
+        sudo dhclient wlan0
+    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
+        ipconfig /release
+        ipconfig /renew
+    fi
 }
