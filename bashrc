@@ -23,7 +23,7 @@ yt:ytd:gs:\
 note*:custom:phone*:\
 tm:tlist:\
 c:la:ls:bg:bf:ll:lla:lf:lt:ldir:thor"
-export HISTCONTROL="ignoredups:ignoreboth"
+export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=100000
 export HISTFILESIZE=500000
 #export HISTTIMEFORMAT="[%F] "
