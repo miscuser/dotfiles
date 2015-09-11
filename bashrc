@@ -16,7 +16,7 @@ IGNOREEOF=2                              # shell exists after 2nd consecutive Ct
 #===============================================================================
 #  Ignore some of the short commands I use frequently.
 export HISTIGNORE="&:exit:\
-mini:nightly:push:pull:history:bash:ocz:\
+mini:nightly:push:pull:history:bash:ocz:renew:\
 vim:vimr:vimR:\
 testing:dl:dots:code:home:drop:\
 yt:ytd:gs:\
