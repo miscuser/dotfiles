@@ -20,7 +20,7 @@ mini:nightly:push:pull:history:bash:ocz:renew:\
 vim:vimr:vimR:\
 testing:dl:dots:code:home:drop:\
 yt:ytd:gs:\
-note*:custom:phone:\
+note*:custom:phone*:\
 tm:tlist:\
 c:la:ls:bg:bf:ll:lla:lf:lt:ldir:thor"
 export HISTCONTROL="ignoredups:ignoreboth"
