@@ -9,7 +9,7 @@
 export EDITOR=vim
 PATH=$PATH:~/bin
 export TERM=xterm-256color
-IGNOREEOF=2                              # shell exists after 2nd consecutive Ctrl-d
+IGNOREEOF=2                         # shell exists after 2nd consecutive Ctrl-d
 
 #===============================================================================
 #  History settings
