@@ -18,6 +18,7 @@ IGNOREEOF=2                         # shell exists after 2nd consecutive Ctrl-d
 export HISTIGNORE="&:exit:\
 mini:nightly:push:pull:history:bash:ocz:renew:\
 vim:vimr:vimR:\
+task:\
 testing:dl:dots:code:home:drop:\
 yt:ytd:gs:\
 note*:custom:phone*:\
@@ -111,6 +112,7 @@ alias code='cd /cygdrive/c/home/code'
 alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper'
 alias testing='cd /cygdrive/c/testing'
 alias haskell='ghc --interactive'
+alias task='o taskschd.msc'
 
 #===============================================================================
 #  FUNCTIONS
