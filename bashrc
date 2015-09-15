@@ -20,7 +20,7 @@ mini:nightly:push:pull:history:bash:ocz:renew:\
 vim:vimr:vimR:\
 task:\
 testing:dl:dots:code:home:drop:\
-yt:ytd:gs:\
+yt:ytd:gs:gc*:\
 note*:custom:phone*:\
 tm:tlist:\
 c:la:ls:bg:bf:ll:lla:lf:lt:ldir:thor"
