@@ -108,7 +108,8 @@ alias tnew='tmux new-session -s $1'
 alias tkill='tmux kill-session -t $1'
 
 # work
-if [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
+if [[ $(hostname) =~ .*DIAL.* ]]
+then
     alias code='cd /cygdrive/c/home/code'
     alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper'
     alias testing='cd /cygdrive/c/testing'
