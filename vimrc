@@ -127,7 +127,7 @@ nnoremap <S-C-k> :m .-2<CR>==
 
 " Insert mode
 inoremap <S-C-j> <ESC>:m .+1<CR>==gi
-inoremap <C-k> <ESC>:m .-2<CR>==gi
+inoremap <S-C-k> <ESC>:m .-2<CR>==gi
 
 " Visual mode
 vnoremap <S-C-j> :m '>+1<CR>gv=gv
