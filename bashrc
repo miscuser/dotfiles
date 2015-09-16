@@ -108,11 +108,13 @@ alias tnew='tmux new-session -s $1'
 alias tkill='tmux kill-session -t $1'
 
 # work
-alias code='cd /cygdrive/c/home/code'
-alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper'
-alias testing='cd /cygdrive/c/testing'
-alias haskell='ghc --interactive'
-alias task='o taskschd.msc'
+if [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
+    alias code='cd /cygdrive/c/home/code'
+    alias ocz='/cygdrive/c/home/code/OneCard/OneCard_Extract_Zipper'
+    alias testing='cd /cygdrive/c/testing'
+    alias haskell='ghc --interactive'
+    alias task='o taskschd.msc'
+fi
 
 #===============================================================================
 #  FUNCTIONS
