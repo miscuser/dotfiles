@@ -250,6 +250,9 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
+" NerdCommenter settings
+let NERDSpaceDelims=1
+
 " syntastic settings
 let g:syntastic_python_pylint_post_args="--max-line-length=120"
 let g:syntastic_aggregate_errors = 1
