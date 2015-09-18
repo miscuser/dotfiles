@@ -54,6 +54,9 @@ alias lla='ls -laSR'
 alias thor='ls -thor'
 alias grep='grep --color'
 
+# alias function names
+alias mdcd='mkdircd'
+
 # save file instead of deleting it
 alias trash='mv -t ~/.trash --backup=t'
 
