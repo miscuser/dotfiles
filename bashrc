@@ -9,7 +9,7 @@
 export EDITOR=vim
 # black 30, blue 34, green 32, cyan 36, red 31, purple 35, brown 33, blue 34
 # use \$PWD instead of \w to get full path
-export PS1="\[\e]0;\w\a\]\n\[\e[1;32m\]\u@\h \[\e[1;36m\]\w\[\e[0m\]\n\$ "
+export PS1="\n\[\e[1;32m\]\u@\h \[\e[1;36m\]\w\[\e[0m\]\n\$ "
 PATH=$PATH:~/bin
 export TERM=xterm-256color
 IGNOREEOF=2                         # shell exists after 2nd consecutive Ctrl-d
