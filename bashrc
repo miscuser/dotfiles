@@ -121,6 +121,7 @@ if [[ $(hostname) =~ DIAL ]] ; then
     alias testing='cd /cygdrive/c/testing'
     alias haskell='ghc --interactive'
     alias task='o taskschd.msc'
+    ip() { ipconfig | grep "IPv4 Address" | awk '{print $NF}'; }
 fi
 
 #===============================================================================
