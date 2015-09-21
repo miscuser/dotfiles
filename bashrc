@@ -104,6 +104,7 @@ alias webshare='python -m SimpleHTTPServer'
 alias gc='git commit -m'
 alias ga='git add'
 alias gs='git status'
+alias grefresh='git ls-files -d | xargs git checkout --'
 alias push='git push origin master'
 alias pull='git pull origin master'
 
