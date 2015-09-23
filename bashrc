@@ -92,7 +92,6 @@ alias o.='o .'
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
 alias drop='cd ~/Dropbox'
-alias guitar='o ~/Dropbox/guitar/2015\ Lessons'
 
 # YouTube stuff
 alias yto='o ~/Downloads/youtube'
