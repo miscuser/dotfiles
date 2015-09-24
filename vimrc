@@ -1,4 +1,4 @@
-" Misc vimrc
+" Misc. vimrc
 
 "-- Vundle
 set nocompatible
@@ -119,19 +119,6 @@ nnoremap <A-left> :vertical resize -5<CR>  " decrease width
 nnoremap <A-right> :vertical resize +5<CR> " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
-
-"-- Move line(s) up or down
-" Normal mode
-nnoremap <S-C-j> :m .+1<CR>==
-nnoremap <S-C-k> :m .-2<CR>==
-
-" Insert mode
-inoremap <S-C-j> <ESC>:m .+1<CR>==gi
-inoremap <S-C-k> <ESC>:m .-2<CR>==gi
-
-" Visual mode
-vnoremap <S-C-j> :m '>+1<CR>gv=gv
-vnoremap <S-C-k> :m '<-2<CR>gv=gv
 
 "-- Insert blank lines above/below in normal mode
 nmap <S-Enter> O<Esc>j
