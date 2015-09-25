@@ -192,6 +192,7 @@ map <leader>co :copen<CR>                            " jump to quickfix window
 map <leader>a :Ack!
 map <leader>i :set list!<CR>                         " toggle listchars on/off
 map <leader>e :edit!<CR>                             " reload current file
+xnoremap p pgvy
 
 "-- Function keys
 map <F1> <ESC>
