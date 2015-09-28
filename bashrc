@@ -339,31 +339,6 @@ function o()
 }
 
 #-------------------------------------------------------------------------------
-#  Display a specified column of data from a space-delimited file. 
-#-------------------------------------------------------------------------------
-function cshow() {
-    USAGE="usage: cshow <field_no> <file>"
-
-    if [ $# -eq 0 ]; then
-        echo -e "$USAGE" >&2
-        return
-    fi
-
-    # Bail if the first argument isn't a number.
-    re='^[0-9]+$'
-    column=$1
-    file=$2
-    if ! [[ "$column" =~ $re ]] ; then
-        echo "First argument (field) must be numeric." >&2
-        echo -e "$USAGE" >&2;
-        return
-    fi
-
-	# Generate this command: perl -lane 'print $F[field_no]' file
-    perl -lane "print \$F['$column' - 1]" $file
-}
-
-#-------------------------------------------------------------------------------
 #  Renew IP address
 #-------------------------------------------------------------------------------
 function renew() {
