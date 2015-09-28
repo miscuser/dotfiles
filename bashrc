@@ -89,7 +89,7 @@ alias wim='vim'
 alias cd..='cd ..'
 alias o.='o .'
 
-# change to commonly used directories 
+# change to commonly used directories
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
 alias drop='cd ~/Dropbox'
@@ -101,7 +101,7 @@ alias ytd='cd ~/Downloads/youtube'
 # start local webserver to share files
 alias webshare='python -m SimpleHTTPServer'
 
-# git 
+# git
 alias gc='git commit -m'
 alias ga='git add'
 alias gs='git status'
@@ -165,7 +165,7 @@ function custom() {
     echo "         o <<-- open file from terminal"
 }
 
-# short utilities 
+# short utilities
 function rot13() { echo "$@" | tr a-zA-Z n-za-mN-ZA-M; }
 
 #-------------------------------------------------------------------------------
@@ -177,10 +177,10 @@ calc(){
 }
 
 #-------------------------------------------------------------------------------
-#  Change to directory immediately after creating it. 
+#  Change to directory immediately after creating it.
 #-------------------------------------------------------------------------------
-function mkdircd() { 
-    mkdir -p "$@" && eval cd "\"\$$#\""; 
+function mkdircd() {
+    mkdir -p "$@" && eval cd "\"\$$#\"";
 }
 
 #-------------------------------------------------------------------------------
@@ -334,42 +334,37 @@ function o()
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         xdg-open "$1"
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
-        cygstart "$1" 
+        cygstart "$1"
     fi
 }
 
 #-------------------------------------------------------------------------------
-#  Save some typing when using awk. 
+#  Display a specified column of data from a space-delimited file. 
 #-------------------------------------------------------------------------------
-function fawk() {
-    USAGE="\
-usage:  fawk [<awk_args>] <field_no>
-        Ex: getent passwd | grep andy | fawk -F: 5
-"
+function cshow() {
+    USAGE="usage: cshow <field_no> <file>"
+
     if [ $# -eq 0 ]; then
         echo -e "$USAGE" >&2
         return
     fi
 
-    # Bail if the last argument isn't a number.
-    last=${@:(-1)}
-    if ! [ $last -eq $last ] &>/dev/null; then
-        echo "FAWK! Last argument (awk field) must be numeric." >&2
+    # Bail if the first argument isn't a number.
+    re='^[0-9]+$'
+    column=$1
+    file=$2
+    if ! [[ "$column" =~ $re ]] ; then
+        echo "First argument (field) must be numeric." >&2
         echo -e "$USAGE" >&2;
         return
     fi
 
-    if [ $# -gt 1 ]; then
-        # Get the last argument.
-        rest=${@:1:$(( $# - 1 ))}
-    else
-        rest='' # Just to be sure.
-    fi
-    awk $rest "{ print  \$$last }"
-} 
+	# Generate this command: perl -lane 'print $F[field_no]' file
+    perl -lane "print \$F['$column' - 1]" $file
+}
 
 #-------------------------------------------------------------------------------
-#  Renew IP address 
+#  Renew IP address
 #-------------------------------------------------------------------------------
 function renew() {
     if [ "$(uname)" == "Darwin" ]; then
