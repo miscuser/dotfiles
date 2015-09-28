@@ -165,8 +165,7 @@ function custom() {
     echo "         o <<-- open file from terminal"
 }
 
-# short utilities
-function rot13() { echo "$@" | tr a-zA-Z n-za-mN-ZA-M; }
+# Short utilities
 
 #-------------------------------------------------------------------------------
 #  Use python as a calculator by including the math library
