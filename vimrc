@@ -126,7 +126,7 @@ nmap <CR> o<Esc>k
 
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%100v.\+/
+match OverLength /\%200v.\+/
 
 "-- Encoding
 set termencoding=utf-8
