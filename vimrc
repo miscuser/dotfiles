@@ -200,7 +200,7 @@ map <F2> :NERDTreeToggle<CR>
 map <F3> :CtrlPBuffer<CR>
 nmap <silent> <F4> ggVG           " select/highlight all
 nmap <silent> <F5> ggVG"+y        " copy all
-set pastetoggle=<F8>
+map <F8> :SyntasticToggleMode<CR>
 nnoremap <F9> :set spell!<CR>
 nnoremap <S-F9> ]s
 nnoremap <F10> :set relativenumber!<CR>
