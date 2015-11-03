@@ -13,11 +13,12 @@ ignoredfiles = set((".git", ".gitignore", os.path.basename(__file__)))
 def installfile(file, installdir):
     try:
         os.symlink(os.path.relpath(file, start=installdir),
-               os.path.join(installdir, file))
+                   os.path.join(installdir, file))
     except:
         log.exception("Problem creating symbolic link")
 
-def do_install(installdir=os.path.expanduser("~"), dryrun=True):
+
+def do_install(installdir=os.path.expanduser("~"), dryrun=False):
     if not os.path.isdir(installdir):
         log.error("Cannot install to {}. It is not a directory".format(installdir))
         raise RuntimeError("installdir is not directory")
@@ -53,8 +54,8 @@ if __name__ == '__main__':
                         help="Path to install symbolic links (default:{})".format(defaultinstall),
                         default=defaultinstall, nargs='?', type=os.path.expanduser)
     parser.add_argument("--log", help="log level", type=int)
-    parser.add_argument("-n", "--dryrun", help="Perform dry run, don't actually do anything",
-                        action="store_false")  # This setting defaults the value to true unless on command line.
+    parser.add_argument("-d", "--dryrun", help="Perform dry run, don't actually do anything",
+                        action="store_true")  # This setting defaults the value to false unless on command line.
     args = parser.parse_args()
 
     logging.basicConfig(level=args.log)
