@@ -193,8 +193,10 @@ map <leader>a :Ack!
 map <leader>i :set list!<CR>                         " toggle listchars on/off
 map <leader>e :edit!<CR>                             " reload current file
 xnoremap p pgvy
+"-- EasyMotion settings
 nmap s <Plug>(easymotion-s)
 nmap t <Plug>(easymotion-s2)
+let g:EasyMotion_startofline = 0
 
 "-- Function keys
 map <F1> <ESC>
