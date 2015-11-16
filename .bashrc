@@ -119,7 +119,7 @@ alias tkill='tmux kill-session -t $1'
 # work
 if [[ $(hostname) =~ DIAL ]] ; then
     alias code='cd /cygdrive/c/home/code'
-    alias ocz='/cygdrive/c/home/code/OneCard/OneCard_extract_zipper.sh'
+    alias ocz='/cygdrive/c/home/code/OneCard/OneCard_extract_zipper.py'
     alias testing='cd /cygdrive/c/testing'
     alias haskell='ghc --interactive'
     alias task='o taskschd.msc'
