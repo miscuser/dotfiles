@@ -120,10 +120,6 @@ nnoremap <A-right> :vertical resize +5<CR> " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
 
-"-- Insert blank lines above/below in normal mode
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
-
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%200v.\+/
