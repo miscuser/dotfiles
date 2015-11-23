@@ -118,13 +118,19 @@ alias tkill='tmux kill-session -t $1'
 
 # work
 if [[ $(hostname) =~ DIAL ]] ; then
-    alias code='cd /cygdrive/c/home/code'
-    alias ocz='/cygdrive/c/home/code/OneCard/OneCard_extract_zipper.py'
+    alias code='cd /cygdrive/c/home/Drake'
+    alias ocz='/cygdrive/c/home/code/Drake/OneCard/OneCard_extract_zipper.py'
     alias testing='cd /cygdrive/c/testing'
-    alias haskell='ghc --interactive'
     alias task='o taskschd.msc'
     alias temp='rm -rf /cygdrive/c/Windows/Temp/ > /dev/null 2>&1'
     ip() { ipconfig | grep "IPv4 Address" | awk '{print $NF}'; }
+elif [[ $(hostname) =~ HFX ]] ; then
+    # alias code='cd /cygdrive/c/home/'
+    alias testing='cd /cygdrive/c/testing'
+    alias task='o taskschd.msc'
+    # alias temp='rm -rf /cygdrive/c/Windows/Temp/ > /dev/null 2>&1'
+    ip() { ipconfig | grep "IPv4 Address" | awk '{print $NF}'; }
+    # :
 fi
 
 #===============================================================================
@@ -136,7 +142,7 @@ fi
 #-------------------------------------------------------------------------------
 function custom() {
     echo "###########  aliases"
-    echo "       bye <<-- shut down the computer"
+    echo "       bye <<-- shut down computer"
     echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
     echo "   upgrade <<-- sudo apt-get upgrade"
     echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
