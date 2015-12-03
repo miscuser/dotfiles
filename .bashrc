@@ -122,13 +122,11 @@ if [[ $(hostname) =~ DIAL ]] ; then
     alias ocz='/cygdrive/c/home/Drake/OneCard/OneCard_extract_zipper.py'
     alias testing='cd /cygdrive/c/testing'
     alias task='o taskschd.msc'
-    alias temp='rm -rf /cygdrive/c/Windows/Temp/ > /dev/null 2>&1'
     ip() { ipconfig | grep "IPv4 Address" | awk '{print $NF}'; }
 elif [[ $(hostname) =~ HFX ]] ; then
     # alias code='cd /cygdrive/c/home/'
     alias testing='cd /cygdrive/c/testing'
     alias task='o taskschd.msc'
-    # alias temp='rm -rf /cygdrive/c/Windows/Temp/ > /dev/null 2>&1'
     ip() { ipconfig | grep "IPv4 Address" | awk '{print $NF}'; }
     # :
 fi
