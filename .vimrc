@@ -35,6 +35,7 @@ filetype plugin indent on          " required
 " :h vundle         - for additional information
 
 "-- Basic settings
+set clipboard=unnamed
 source ~/dotfiles/abbreviations.vim   " common abbreviations
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set listchars=tab:▸\ ,eol:¬
