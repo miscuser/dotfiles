@@ -194,6 +194,8 @@ xnoremap p pgvy
 nmap s <Plug>(easymotion-s)
 nmap t <Plug>(easymotion-s2)
 let g:EasyMotion_startofline = 0
+"-- Search for current word under cursor.
+map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
 
 "-- Function keys
 map <F1> <ESC>
@@ -253,3 +255,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
