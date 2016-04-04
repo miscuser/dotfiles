@@ -27,6 +27,7 @@ yt:ytd:gs:gc*:\
 note*:custom:phone*:\
 tm:tlist:\
 ago:\
+histon:histoff:thumbs:\
 c:la:ls:bg:bf:ll:lla:lf:lt:ldir:thor"
 export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=100000
