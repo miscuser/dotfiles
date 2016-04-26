@@ -102,6 +102,7 @@ alias drop='cd ~/Dropbox'
 # YouTube stuff
 alias yto='o ~/Downloads/youtube'
 alias ytd='cd ~/Downloads/youtube'
+alias audio='youtube-dl -x --audio-format mp3 $1'
 
 # start local webserver to share files
 alias webshare='python -m SimpleHTTPServer'
