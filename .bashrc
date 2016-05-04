@@ -366,6 +366,6 @@ function renew() {
 #-------------------------------------------------------------------------------
 # Display the 10 largest files in the specified directory. 
 #-------------------------------------------------------------------------------
-function big() {
-    find "$1" -printf '%s %p\ni'| sort -nr | head -10
-}
+# function big() {
+    # find . -printf '%s %p\ni'| sort -nr | head -10
+# }
