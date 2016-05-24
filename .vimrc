@@ -69,6 +69,8 @@ set incsearch                 " use incremental search
 set ignorecase                " ignore case by default in search
 set smartcase                 " smart case search (insensitive if all lowercase; sensitive otherwise)
 nmap <silent> <leader>/ :nohlsearch<CR>  " clear highlighted search results
+"vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <c-f> y<ESC>/<c-r>"<CR>
 
 "-- Status line
 set laststatus=2
