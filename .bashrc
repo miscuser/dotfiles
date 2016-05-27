@@ -210,7 +210,7 @@ function dl()
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
         cd ~/Downloads
     elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
-        cd  /cygdrive/c/users/100219278/Downloads
+        cd  /cygdrive/c/dl
     fi
 }
 
