@@ -1,0 +1,65 @@
+#===============================================================================
+# Custom settings based on machine. 
+#===============================================================================
+alias dl='eval cd $download_folder'
+alias docs='eval cd $document_folder'
+alias code='eval cd $code_folder'
+alias testing='eval cd $testing_folder'
+alias yto='o $youtube_folder'
+alias ytd='eval cd $youtube_folder'
+alias drop='eval cd $dropbox_folder'
+alias task='$task_command'
+
+#-------------------------------------------------------------------------------
+# Work laptop.
+#-------------------------------------------------------------------------------
+if [[ $(hostname) =~ XLAPTOP ]] ; then
+    # commands
+    task_command='open taskschd.msc'
+    # folders
+    code_folder='/cygdrive/c/home/code'
+    testing_folder='/cygdrive/c/testing'
+    download_folder='/cygdrive/c/users/$USER/Downloads'
+    document_folder='/cygdrive/c/users/$USER/Documents'
+    youtube_folder=''
+    dropbox_folder=''
+    # functions
+    ip() { hostname -i | awk '{print $4}'; }
+    # additional customizations
+    alias safe='cd /cygdrive/c/Safety'
+fi
+
+#-------------------------------------------------------------------------------
+# Home - tower - Linux.
+#-------------------------------------------------------------------------------
+if [[ $(hostname) =~ dungeon ]] ; then
+    # commands
+    task_command='open taskschd.msc'
+    # folders
+    code_folder='/cygdrive/c/home/code'
+    testing_folder='/cygdrive/c/testing'
+    download_folder='/cygdrive/c/users/$USER/Downloads'
+    document_folder='/cygdrive/c/users/$USER/Documents'
+    youtube_folder='~/Downloads/youtube'
+    dropbox_folder=''
+    # functions
+    ip() { hostname -i | awk '{print $4}'; }
+fi
+
+#-------------------------------------------------------------------------------
+# Home - tower - Windows.
+#-------------------------------------------------------------------------------
+if [[ $(hostname) =~ dungeon ]] ; then
+    # commands
+    task_command='open taskschd.msc'
+    # folders
+    code_folder='/cygdrive/c/home/code'
+    testing_folder='/cygdrive/c/testing'
+    download_folder='/cygdrive/c/users/$USER/Downloads'
+    document_folder='/cygdrive/c/users/$USER/Documents'
+    youtube_folder='~/Downloads/youtube'
+    dropbox_folder=''
+    # functions
+    ip() { hostname -i | awk '{print $4}'; }
+fi
+
