@@ -101,9 +101,6 @@ alias o.='o .'
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
 
-# start local webserver to share files
-alias sharethis='python -m SimpleHTTPServer'
-
 # git
 alias gc='git commit -m'
 alias ga='git add'
