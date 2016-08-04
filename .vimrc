@@ -35,6 +35,7 @@ filetype plugin indent on          " required
 " :h vundle         - for additional information
 
 "-- Basic settings
+set clipboard=unnamed
 source ~/dotfiles/abbreviations.vim   " common abbreviations
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set listchars=tab:▸\ ,eol:¬
@@ -68,6 +69,9 @@ set incsearch                 " use incremental search
 set ignorecase                " ignore case by default in search
 set smartcase                 " smart case search (insensitive if all lowercase; sensitive otherwise)
 nmap <silent> <leader>/ :nohlsearch<CR>  " clear highlighted search results
+
+"-- Replace current visual selection. Uses register 'o'.
+vnoremap <C-r> "oy:%s/<C-r>o//<left>
 
 "-- Status line
 set laststatus=2
@@ -119,10 +123,6 @@ nnoremap <A-left> :vertical resize -5<CR>  " decrease width
 nnoremap <A-right> :vertical resize +5<CR> " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
-
-"-- Insert blank lines above/below in normal mode
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
 
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -197,6 +197,8 @@ xnoremap p pgvy
 nmap s <Plug>(easymotion-s)
 nmap t <Plug>(easymotion-s2)
 let g:EasyMotion_startofline = 0
+"-- Search for current word under cursor.
+map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
 
 "-- Function keys
 map <F1> <ESC>
@@ -256,3 +258,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
