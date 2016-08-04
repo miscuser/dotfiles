@@ -184,26 +184,6 @@ alias tkill='tmux kill-session -t $1'
 #===============================================================================
 
 #-------------------------------------------------------------------------------
-#  Prints descriptions of commonly used aliases and functions.
-#-------------------------------------------------------------------------------
-function custom() {
-    echo "###########  aliases"
-    echo "       bye <<-- shut down the computer"
-    echo "    update <<-- sudo apt-get update && sudo apt-get upgrade"
-    echo "   upgrade <<-- sudo apt-get upgrade"
-    echo "     clean <<-- sudo apt-get autoclean && sudo apt-get autoremove"
-    echo "      pull <<-- git pull origin master"
-    echo "      push <<-- git push origin master"
-    echo "      mini <<-- restart minidlna"
-    echo ""
-    echo "###########  tmux"
-    echo "     tlist <<-- list tmux sessions"
-    echo "     tkill <<-- kill tmux sessions"
-    echo "       tat <<-- tmux attach"
-    echo "      tnew <<-- create new tmux session"
-}
-
-#-------------------------------------------------------------------------------
 #  Use python as a calculator by including the math library.
 #-------------------------------------------------------------------------------
 calc(){
