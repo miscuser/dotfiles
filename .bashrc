@@ -1,11 +1,75 @@
 # Misc's bash configuration
 
-# If not running interactively, don't do anything
-[[ "$-" != *i* ]] && return
+#===============================================================================
+# Custom settings based on machine. 
+#===============================================================================
+alias dl='eval cd $download_folder'
+alias docs='eval cd $document_folder'
+alias code='eval cd $code_folder'
+alias testing='eval cd $testing_folder'
+alias yto='o $youtube_folder'
+alias ytd='eval cd $youtube_folder'
+alias drop='eval cd $dropbox_folder'
+alias task='$task_command'
+
+#-------------------------------------------------------------------------------
+# Work laptop.
+#-------------------------------------------------------------------------------
+if [[ $(hostname) =~ XLAPTOP ]] ; then
+    # commands
+    task_command='open taskschd.msc'
+    # folders
+    code_folder='/cygdrive/c/home/code'
+    testing_folder='/cygdrive/c/testing'
+    download_folder='/cygdrive/c/users/$USER/Downloads'
+    document_folder='/cygdrive/c/users/$USER/Documents'
+    youtube_folder=''
+    dropbox_folder=''
+    # functions
+    ip() { hostname -i | awk '{print $4}'; }
+    # additional customizations
+    alias safe='cd /cygdrive/c/Safety'
+fi
+
+#-------------------------------------------------------------------------------
+# Home - tower - Linux.
+#-------------------------------------------------------------------------------
+if [[ $(hostname) =~ dungeon ]] ; then
+    # commands
+    task_command='open taskschd.msc'
+    # folders
+    code_folder='/cygdrive/c/home/code'
+    testing_folder='/cygdrive/c/testing'
+    download_folder='/cygdrive/c/users/$USER/Downloads'
+    document_folder='/cygdrive/c/users/$USER/Documents'
+    youtube_folder='~/Downloads/youtube'
+    dropbox_folder=''
+    # functions
+    ip() { hostname -i | awk '{print $4}'; }
+fi
+
+#-------------------------------------------------------------------------------
+# Home - tower - Windows.
+#-------------------------------------------------------------------------------
+if [[ $(hostname) =~ dungeon ]] ; then
+    # commands
+    task_command='open taskschd.msc'
+    # folders
+    code_folder='/cygdrive/c/home/code'
+    testing_folder='/cygdrive/c/testing'
+    download_folder='/cygdrive/c/users/$USER/Downloads'
+    document_folder='/cygdrive/c/users/$USER/Documents'
+    youtube_folder='~/Downloads/youtube'
+    dropbox_folder=''
+    # functions
+    ip() { hostname -i | awk '{print $4}'; }
+fi
 
 #===============================================================================
-#  Common stuff
+#  Common settings. 
 #===============================================================================
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
 export EDITOR=vim
 # black 30, blue 34, green 32, cyan 36, red 31, purple 35, brown 33, blue 34
 # use \$PWD instead of \w to get full path
@@ -20,6 +84,7 @@ IGNOREEOF=2                         # shell exists after 2nd consecutive Ctrl-d
 #  Ignore some of the short commands I use frequently.
 export HISTIGNORE="&:exit:\
 mini:nightly:push:pull:history:bash:ocz:renew:\
+rmdir:\
 vim:vimr:vimR:\
 task:\
 testing:dl:dots:code:home:drop:\
@@ -42,6 +107,7 @@ bind '"\e[A":history-search-backward'    # arrow keys for history search
 bind '"\e[B":history-search-forward'     # arrow keys for history search
 bind TAB:menu-complete
 
+
 #===============================================================================
 #  Aliases
 #===============================================================================
@@ -57,8 +123,10 @@ alias lla='ls -laSR'
 alias thor='ls -thor'
 alias grep='grep --color'
 
-# alias function names
+# alias functions and scripts
 alias mdcd='mkdircd'
+alias o='open'
+alias c='clear-screen'
 
 # save file instead of deleting it
 alias trash='mv -t ~/.trash --backup=t'
@@ -93,14 +161,9 @@ alias o.='o .'
 # change to commonly used directories
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
-alias drop='cd ~/Dropbox'
-
-# YouTube stuff
-alias yto='o ~/Downloads/youtube'
-alias ytd='cd ~/Downloads/youtube'
 
 # start local webserver to share files
-alias webshare='python -m SimpleHTTPServer'
+alias sharethis='python -m SimpleHTTPServer'
 
 # git
 alias gc='git commit -m'
@@ -116,23 +179,12 @@ alias tat='tmux attach -t $1'
 alias tnew='tmux new-session -s $1'
 alias tkill='tmux kill-session -t $1'
 
-# work
-if [[ $(hostname) =~ DIAL ]] ; then
-    alias code='cd /cygdrive/c/home/code'
-    alias ocz='/cygdrive/c/home/code/OneCard/OneCard_extract_zipper.py'
-    alias testing='cd /cygdrive/c/testing'
-    alias haskell='ghc --interactive'
-    alias task='o taskschd.msc'
-    alias temp='rm -rf /cygdrive/c/Windows/Temp/ > /dev/null 2>&1'
-    ip() { ipconfig | grep "IPv4 Address" | awk '{print $NF}'; }
-fi
-
 #===============================================================================
 #  FUNCTIONS
 #===============================================================================
 
 #-------------------------------------------------------------------------------
-#  Prints a description of some aliases and functions
+#  Prints descriptions of commonly used aliases and functions.
 #-------------------------------------------------------------------------------
 function custom() {
     echo "###########  aliases"
@@ -149,25 +201,7 @@ function custom() {
     echo "     tkill <<-- kill tmux sessions"
     echo "       tat <<-- tmux attach"
     echo "      tnew <<-- create new tmux session"
-    echo ""
-    echo "###########  functions"
-    echo "   extract <<-- extract the most common compression types"
-    echo "   nightly <<-- run nightly backup"
-    echo "   mkdircd <<-- create directory and cd to it"
-    echo "     renew <<-- renew IP address"
-    echo "     mvnzb <<-- move nzb files to correct directory"
-    echo "     phone <<-- search for phone number"
-    echo "      docs <<-- change to documents folder"
-    echo "      calc <<-- Python calculator"
-    echo "       ffc <<-- find file containing pattern"
-    echo "        ff <<-- find file with pattern in name"
-    echo "        fd <<-- find directory with pattern in name"
-    echo "        dl <<-- change to download folder"
-    echo "         c <<-- clear the terminal screen"
-    echo "         o <<-- open file from terminal"
 }
-
-# Short utilities
 
 #-------------------------------------------------------------------------------
 #  Use python as a calculator by including the math library.
@@ -182,174 +216,4 @@ calc(){
 #-------------------------------------------------------------------------------
 function mkdircd() {
     mkdir -p "$@" && eval cd "\"\$$#\"";
-}
-
-#-------------------------------------------------------------------------------
-#  Runs nightly backup.
-#-------------------------------------------------------------------------------
-function nightly()
-{
-    /home/misc/scripts/nightly_backup.sh
-}
-
-#-------------------------------------------------------------------------------
-#  Change to download folder.
-#-------------------------------------------------------------------------------
-function dl()
-{
-    if [ "$(uname)" == "Darwin" ] ; then
-        echo "You need to set the path"
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
-        cd ~/Downloads
-    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
-        cd  /cygdrive/c/users/100219278/Downloads
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Change to documents folder.
-#-------------------------------------------------------------------------------
-function docs()
-{
-    if [ "$(uname)" == "Darwin" ] ; then
-        echo "You need to set the path"
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
-        cd ~/Documents
-    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
-        echo "You need to set the page"
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Search for phone number.
-#-------------------------------------------------------------------------------
-function phone()
-{
-    if [ "$(uname)" == "Darwin" ] ; then
-        pfile='phone.txt'
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ] ; then
-        pfile='phone.txt'
-    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ] ; then
-        pfile='/cygdrive/c/home/reference/phone.txt'
-    fi
-
-    if [ -f $pfile ] ; then
-        grep -i $1 $pfile
-    else
-        echo "$pfile does not exist"
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Extract the most commmon compression types.
-#-------------------------------------------------------------------------------
-function extract()
-{
-    if [ -f "$1" ] ; then
-        case "$1" in
-            *.tar.bz2)   tar xvjf "$1"     ;;
-            *.tar.gz)    tar xvzf "$1"     ;;
-            *.bz2)       bunzip2 "$1"      ;;
-            *.rar)       unrar x "$1"      ;;
-            *.gz)        gunzip "$1"       ;;
-            *.tar)       tar xvf "$1"      ;;
-            *.tbz2)      tar xvjf "$1"     ;;
-            *.tgz)       tar xvzf "$1"     ;;
-            *.zip)       unzip "$1"        ;;
-            *.Z)         uncompress "$1"   ;;
-            *.7z)        7z x "$1"         ;;
-            *)           echo "'$1' cannot be extracted via >extract<" ;;
-        esac
-    else
-        echo "'$1' is not a valid file!"
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Find a file with pattern in name.
-#-------------------------------------------------------------------------------
-function ff()
-{
-    # Using -not -iwholename to ignore .git folders. Remove that to restore.
-    find . -not -iwholename '*.git*' -type f -iname '*'"$*"'*' -ls 2>/dev/null
-}
-
-#-------------------------------------------------------------------------------
-#  Find a directory with pattern in name.
-#-------------------------------------------------------------------------------
-function fd()
-{
-    # Find directories and omit errors (e.g. permission denied)
-    # Using -not -iwholename to ignore .git folders. Remove that to restore.
-    find . -not -iwholename '*.git*' -type d -iname '*'"$*"'*' -ls 2>/dev/null
-}
-
-#-------------------------------------------------------------------------------
-#  Find a file containing pattern.
-#-------------------------------------------------------------------------------
-function ffc()
-{
-    # Find files and omit errors (e.g. permission denied)
-    if hash ag 2>/dev/null; then
-        ag -li "$*" 2>/dev/null
-    else
-        echo "Install Silver Searcher (Ag) first"
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Clear the screen.
-#-------------------------------------------------------------------------------
-function c()
-{
-    if [ "$(uname)" == "Darwin" ]; then
-        clear
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        clear
-    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
-        printf "\033c"
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Move nzb files to proper directory.
-#-------------------------------------------------------------------------------
-function mvnzb()
-{
-    if [ "$(uname)" == "Darwin" ]; then
-        echo "configure this"
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        mv ~/Downloads/*.nzb ~/Downloads/nzb
-    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
-        echo "configure this"
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Open file from command line.
-#-------------------------------------------------------------------------------
-function o()
-{
-    if [ "$(uname)" == "Darwin" ]; then
-        echo "configure this"
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        xdg-open "$1"
-    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
-        cygstart "$1"
-    fi
-}
-
-#-------------------------------------------------------------------------------
-#  Renew IP address.
-#-------------------------------------------------------------------------------
-function renew() {
-    if [ "$(uname)" == "Darwin" ]; then
-        echo "configure this"
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        sudo dhclient -r wlan0
-        sudo dhclient wlan0
-    elif [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
-        ipconfig /release
-        ipconfig /renew
-    fi
 }
