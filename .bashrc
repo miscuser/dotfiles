@@ -96,7 +96,6 @@ c:la:ls:bg:bf:ll:lla:lf:lt:ldir:thor"
 export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=100000
 export HISTFILESIZE=500000
-#export HISTTIMEFORMAT="[%F] "
 shopt -s histappend
 shopt -s histverify
 
@@ -106,7 +105,6 @@ shopt -s histverify
 bind '"\e[A":history-search-backward'    # arrow keys for history search
 bind '"\e[B":history-search-forward'     # arrow keys for history search
 bind TAB:menu-complete
-
 
 #===============================================================================
 #  Aliases
