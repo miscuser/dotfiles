@@ -61,6 +61,9 @@ alias lls='ls -lhSR'
 alias lla='ls -laSR'
 alias thor='ls -thor'
 alias grep='grep --color'
+alias histoff='set +o history'
+alias histon='set -o history'
+alias thumbs='sudo rm -rf ~/.cache/thumbnails/*'
 
 # alias functions and scripts
 alias mdcd='mkdircd'
