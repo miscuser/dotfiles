@@ -22,7 +22,7 @@ if [[ $(hostname) =~ XLAPTOP ]] ; then
     # commands
     task_command='open taskschd.msc'
     # folders
-    code_folder='/cygdrive/c/home/code'
+    code_folder=''
     testing_folder='/cygdrive/c/testing'
     download_folder='/cygdrive/c/users/$USER/Downloads'
     document_folder='/cygdrive/c/users/$USER/Documents'
