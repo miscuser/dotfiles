@@ -34,12 +34,12 @@ fi
 #-------------------------------------------------------------------------------
 if [[ $(hostname) =~ dungeon ]] ; then
     # commands
-    task_command='open taskschd.msc'
+    task_command=''
     # folders
-    code_folder='/cygdrive/c/home/code'
-    testing_folder='/cygdrive/c/testing'
-    download_folder='/cygdrive/c/users/$USER/Downloads'
-    document_folder='/cygdrive/c/users/$USER/Documents'
+    code_folder=''
+    testing_folder=''
+    download_folder='~/Downloads'
+    document_folder='~/Documents'
     youtube_folder='~/Downloads/youtube'
     dropbox_folder=''
     # functions
@@ -49,16 +49,16 @@ fi
 #-------------------------------------------------------------------------------
 # Home - tower - Windows.
 #-------------------------------------------------------------------------------
-if [[ $(hostname) =~ dungeon ]] ; then
+if [[ $(hostname) =~ Kramer ]] ; then
     # commands
     task_command='open taskschd.msc'
     # folders
-    code_folder='/cygdrive/c/home/code'
+    code_folder=''
     testing_folder='/cygdrive/c/testing'
-    download_folder='/cygdrive/c/users/$USER/Downloads'
-    document_folder='/cygdrive/c/users/$USER/Documents'
-    youtube_folder='~/Downloads/youtube'
-    dropbox_folder=''
+    download_folder='/cygdrive/c/dl'
+    document_folder=''
+    youtube_folder='/cygdrive/c/dl/youtube'
+    dropbox_folder='/cygdrive/c/Dropbox'
     # functions
     ip() { hostname -i | awk '{print $4}'; }
 fi
