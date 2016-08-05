@@ -5,10 +5,15 @@ alias dl='eval cd $download_folder'
 alias docs='eval cd $document_folder'
 alias code='eval cd $code_folder'
 alias testing='eval cd $testing_folder'
-alias yto='o $youtube_folder'
-alias ytd='eval cd $youtube_folder'
 alias drop='eval cd $dropbox_folder'
 alias task='$task_command'
+
+# Youtube
+alias yto='eval o $youtube_folder'
+alias ytd='eval cd $youtube_folder'
+alias yte='eval vim $dropbox_folder/youtube.txt'
+alias ytdl='eval youtube-dl --batch-file=$dropbox_folder/youtube.txt'
+alias ytmp3='eval mp3 --batch-file=$dropbox_folder/youtube.txt'
 
 #-------------------------------------------------------------------------------
 # Work laptop.
@@ -38,10 +43,10 @@ if [[ $(hostname) =~ dungeon ]] ; then
     # folders
     code_folder=''
     testing_folder=''
-    download_folder='~/Downloads'
-    document_folder='~/Documents'
-    youtube_folder='~/Downloads/youtube'
-    dropbox_folder=''
+    download_folder='$HOME/Downloads'
+    document_folder='$HOME/Documents'
+    youtube_folder='$HOME/Downloads/youtube'
+    dropbox_folder='$HOME/Dropbox'
     # functions
     ip() { hostname -i | awk '{print $4}'; }
 fi
