@@ -35,7 +35,7 @@ vim:vimr:vimR:\
 task:\
 testing:dl:dots:code:home:drop:\
 yt:ytd:gs:gc*:\
-note*:custom:phone*:\
+log_work:custom:phone*:\
 tm:tlist:\
 ago:\
 c:la:ls:bg:bf:ll:lla:lf:lt:ldir:thor"
