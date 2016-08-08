@@ -11,6 +11,11 @@ if [ -f "${HOME}/dotfiles/.bash_machines" ] ; then
     source "${HOME}/dotfiles/.bash_machines"
 fi
 
+# Load custom functions. 
+if [ -f "${HOME}/dotfiles/.bash_functions" ] ; then
+    source "${HOME}/dotfiles/.bash_functions"
+fi
+
 export EDITOR=vim
 # black 30, blue 34, green 32, cyan 36, red 31, purple 35, brown 33, blue 34
 # use \$PWD instead of \w to get full path
@@ -117,22 +122,3 @@ alias tlist='tmux list-sessions'
 alias tat='tmux attach -t $1'
 alias tnew='tmux new-session -s $1'
 alias tkill='tmux kill-session -t $1'
-
-#===============================================================================
-#  FUNCTIONS
-#===============================================================================
-
-#-------------------------------------------------------------------------------
-#  Use python as a calculator by including the math library.
-#-------------------------------------------------------------------------------
-calc(){
-    #python3 -c "from math import *; print($*)"
-    python -c "from __future__ import division; from math import *; print($*)"
-}
-
-#-------------------------------------------------------------------------------
-#  Change to directory immediately after creating it.
-#-------------------------------------------------------------------------------
-function mkdircd() {
-    mkdir -p "$@" && eval cd "\"\$$#\"";
-}
