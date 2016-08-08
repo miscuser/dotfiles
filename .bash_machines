@@ -7,6 +7,7 @@ alias code='eval cd $code_folder'
 alias testing='eval cd $testing_folder'
 alias drop='eval cd $dropbox_folder'
 alias task='$task_command'
+alias log_work='eval vim $worklog'
 
 # Youtube
 alias yto='eval o $youtube_folder'
@@ -28,6 +29,7 @@ if [[ $(hostname) =~ XLAPTOP ]] ; then
     document_folder='/cygdrive/c/users/$USER/Documents'
     youtube_folder=''
     dropbox_folder=''
+    worklog='$HOME/done.txt'
     # functions
     ip() { hostname -i | awk '{print $4}'; }
     # additional customizations
