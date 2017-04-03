@@ -104,6 +104,7 @@ alias vom='vim'
 alias wim='vim'
 alias cd..='cd ..'
 alias o.='o .'
+alias youtube-dl='youtube-dl.exe'
 
 # change to commonly used directories
 alias home='cd ~'
