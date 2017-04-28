@@ -109,7 +109,6 @@ alias youtube-dl='youtube-dl.exe'
 # change to commonly used directories
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
-alias ytd='cd ~/Downloads/youtube'
 
 # git
 alias gc='git commit -m'
