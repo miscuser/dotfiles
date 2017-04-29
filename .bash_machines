@@ -6,6 +6,7 @@ alias docs='eval cd $document_folder'
 alias code='eval cd $code_folder'
 alias testing='eval cd $testing_folder'
 alias drop='eval cd $dropbox_folder'
+alias dropo='eval o $dropbox_folder'
 alias task='$task_command'
 alias log_work='eval vim $worklog'
 
