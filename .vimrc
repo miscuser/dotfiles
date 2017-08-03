@@ -202,6 +202,9 @@ xnoremap p pgvy
 nmap s <Plug>(easymotion-s)
 nmap t <Plug>(easymotion-s2)
 let g:EasyMotion_startofline = 0
+" change the default search to easymotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 "-- Search for current word under cursor.
 map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
 
