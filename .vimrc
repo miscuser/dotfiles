@@ -190,7 +190,6 @@ set sidescroll=1        " number of cols to scroll at a time
 
 "-- Misc. mappings
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>     " strip whitespace from the end of lines
-nmap <leader>p :set paste!<CR>                       " toggle paste mode
 nmap <leader>z z=                                    " show suggested spelling
 map <leader>cc :ccl<CR>                              " close the quickfix window
 map <leader>co :copen<CR>                            " jump to quickfix window
@@ -218,7 +217,7 @@ map <F8> :SyntasticToggleMode<CR>
 nnoremap <F9> :set spell!<CR>
 nnoremap <S-F9> ]s
 nnoremap <F10> :set relativenumber!<CR>
-map <F12> :r! date "+\%Y-\%m-\%d"<CR>
+set pastetoggle=<F12>
 
 "-- CtrlP settings
 nmap <leader>t :CtrlP<CR>
