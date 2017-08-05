@@ -129,6 +129,10 @@ nnoremap <A-right> :vertical resize +5<CR> " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
 
+"-- Make changes tabs easier.
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%200v.\+/
