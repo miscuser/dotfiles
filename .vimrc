@@ -24,9 +24,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
-Plugin 'embear/vim-foldsearch'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'davidhalter/jedi-vim'
 call vundle#end()                  " required
 filetype plugin indent on          " required
@@ -102,11 +99,6 @@ set foldlevel=1
 " zR – open all
 " zM – close all
 
-"-- vim-foldsearch settings
-map <silent> <leader>yo :folddoopen y
-let g:foldsearch_disable_mappings=1     " disable default mappings
-let g:foldsearch_highlight=1            " highlight search results
-
 "-- Colorschemes
 autocmd BufEnter *     colorscheme badwolf
 autocmd BufEnter *.txt colorscheme murphy
@@ -142,14 +134,11 @@ au BufRead,BufNewFile,BufEnter *.md,*.markdown set filetype=markdown  " set file
 command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
 map <silent> <leader>mp :PDF<CR>
 
-"-- vimrc handling
+"-- Open common files
 map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
-
-"-- Open common files
-map <silent> <leader>ea :e ~/dotfiles/.abbreviations.vim<CR>   " abbreviations
-map <silent> <leader>eb :e ~/dotfiles/.bashrc<CR>              " bashrc
-map <silent> <leader>et :e ~/dotfiles/.tmux.conf<CR>           " tmux 
+map <silent> <leader>eb :e ~/dotfiles/.bashrc<CR>             " bashrc
+map <silent> <leader>et :e ~/dotfiles/.tmux.conf<CR>          " tmux 
 
 "-- Python
 command PyRun ! python %
@@ -192,16 +181,17 @@ set sidescroll=1        " number of cols to scroll at a time
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>     " strip whitespace from the end of lines
 nmap <leader>p :set paste!<CR>                       " toggle paste mode
 nmap <leader>z z=                                    " show suggested spelling
-map <leader>cc :ccl<CR>                              " close the quickfix window
-map <leader>co :copen<CR>                            " jump to quickfix window
-map <leader>a :Ack!
 map <leader>i :set list!<CR>                         " toggle listchars on/off
 map <leader>e :edit!<CR>                             " reload current file
 xnoremap p pgvy
+
 "-- EasyMotion settings
 nmap s <Plug>(easymotion-s)
 nmap t <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 let g:EasyMotion_startofline = 0
+
 "-- Search for current word under cursor.
 map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
 
@@ -211,11 +201,10 @@ map <F2> :NERDTreeToggle<CR>
 map <F3> :CtrlPBuffer<CR>
 nmap <silent> <F4> ggVG           " select/highlight all
 nmap <silent> <F5> ggVG"+y        " copy all
-map <F8> :SyntasticToggleMode<CR>
 nnoremap <F9> :set spell!<CR>
 nnoremap <S-F9> ]s
 nnoremap <F10> :set relativenumber!<CR>
-map <F12> :r! date "+\%Y-\%m-\%d"<CR>
+set pastetoggle=<F12>
 
 "-- CtrlP settings
 nmap <leader>t :CtrlP<CR>
@@ -251,16 +240,4 @@ endif
 
 " NerdCommenter settings
 let NERDSpaceDelims=1
-
-" syntastic settings
-let g:syntastic_python_pylint_post_args="--max-line-length=120"
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_python_checkers=['flake8']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
