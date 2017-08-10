@@ -13,10 +13,9 @@ if !isdirectory(expand("~/.vim/colors"))
     !git clone https://github.com/miscuser/colors.git ~/.vim/colors
 endif
 
+"-- Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-"-- Plugins
 Plugin 'gmarik/Vundle.vim'         " Let Vundle manage Vundle
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdtree'
@@ -27,14 +26,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 call vundle#end()                  " required
 filetype plugin indent on          " required
-
-"-- Vundle instructions
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update
-" :PluginUpdate     - update plugins
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-" :h vundle         - for additional information
 
 "-- Basic settings
 set clipboard=unnamed
@@ -228,6 +219,9 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
-" NerdCommenter settings
+"-- NerdCommenter settings
 let NERDSpaceDelims=1
 
+"-- Jedi settings
+let g:jedi#popup_on_dot = 0
+autocmd FileType python setlocal completeopt-=preview
