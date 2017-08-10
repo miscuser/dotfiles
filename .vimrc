@@ -194,13 +194,11 @@ nmap t <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_startofline = 0
-<<<<<<< HEAD
 
-=======
 " change the default search to easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
->>>>>>> 79feaeab3967e972e5f6e1c7de42e9197563aa0e
+"
 "-- Search for current word under cursor.
 map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
 
