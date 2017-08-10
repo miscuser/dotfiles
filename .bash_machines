@@ -25,8 +25,8 @@ if [[ $(hostname) =~ XLAPTOP ]] ; then
     # folders
     code_folder=''
     testing_folder='/cygdrive/c/testing'
-    download_folder='/cygdrive/c/users/$USER/Downloads'
-    document_folder='/cygdrive/c/users/$USER/Documents'
+    download_folder='/cygdrive/c/users/$USER.HEALTHEFX/Downloads' 
+    document_folder='/cygdrive/c/users/$USER.HEALTHEFX/Documents'
     youtube_folder=''
     dropbox_folder=''
     worklog='$HOME/done.txt'
@@ -69,4 +69,3 @@ if [[ $(hostname) =~ Kramer ]] ; then
     # functions
     ip() { hostname -i | awk '{print $4}'; }
 fi
-
