@@ -64,13 +64,23 @@ set matchpairs+=<:>           " match pairs beyond defaults
 autocmd BufEnter * lcd %:p:h  " set current working directory to current buffer location
 syntax on                     " syntax coloring
 
-"-- Vim searching
+"-- Searching
 set gdefault                  " apply substitutions globally by default - add `g` for old behavior
 set hlsearch                  " highlight search results
 set incsearch                 " use incremental search
 set ignorecase                " ignore case by default in search
 set smartcase                 " smart case search (insensitive if all lowercase; sensitive otherwise)
 nmap <silent> <leader>/ :nohlsearch<CR>  " clear highlighted search results
+nmap s <Plug>(easymotion-s)
+nmap t <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+let g:EasyMotion_startofline = 0
+" change the default search to easymotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" Search for current word under cursor.
+map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
 
 "-- Replace current visual selection. Uses register 'o'.
 vnoremap <C-r> "oy:%s/<C-r>o//<left>
@@ -93,11 +103,6 @@ set nofoldenable              " don't fold by default
 set foldmethod=indent         " fold based on indent
 set foldnestmax=10            " deepest fold is 10 levels
 set foldlevel=1
-" za – toggles
-" zc – closes
-" zo – opens
-" zR – open all
-" zM – close all
 
 "-- Colorschemes
 autocmd BufEnter *     colorscheme badwolf
@@ -105,8 +110,8 @@ autocmd BufEnter *.txt colorscheme murphy
 
 "-- Buffers
 noremap  <leader>be :enew<CR>
-noremap  <leader>bn :bnext<CR>
-noremap  <leader>bp :bprev<CR>
+
+" -- Quixfix window
 noremap <C-PageDown> :cnext<CR>
 noremap <C-PageUp> :cprev<CR>
 
@@ -121,7 +126,7 @@ nnoremap <A-right> :vertical resize +5<CR> " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
 
-"-- Make changes tabs easier.
+"-- Make changing tabs easier.
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
@@ -143,10 +148,6 @@ map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
 map <silent> <leader>eb :e ~/dotfiles/.bashrc<CR>             " bashrc
 map <silent> <leader>et :e ~/dotfiles/.tmux.conf<CR>          " tmux 
-
-"-- Python
-command PyRun ! python %
-map <silent> <leader>py :PyRun<CR>
 
 "-- Sanity mappings
 nnoremap ; :
@@ -188,28 +189,11 @@ map <leader>i :set list!<CR>                         " toggle listchars on/off
 map <leader>e :edit!<CR>                             " reload current file
 xnoremap p pgvy
 
-"-- EasyMotion settings
-nmap s <Plug>(easymotion-s)
-nmap t <Plug>(easymotion-s2)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-let g:EasyMotion_startofline = 0
-
-" change the default search to easymotion
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-"
-"-- Search for current word under cursor.
-map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
-
 "-- Function keys
 map <F1> <ESC>
 map <F2> :NERDTreeToggle<CR>
-map <F3> :CtrlPBuffer<CR>
 nmap <silent> <F4> ggVG           " select/highlight all
-nmap <silent> <F5> ggVG"+y        " copy all
 nnoremap <F9> :set spell!<CR>
-nnoremap <S-F9> ]s
 nnoremap <F10> :set relativenumber!<CR>
 set pastetoggle=<F12>
 
@@ -233,7 +217,6 @@ endif
 "-- Command line completion
 set wildmenu                 " navigate <left> & <right> through completion lists
 set wildmode=full            " complete first full match, next match (default)
-
 set wildignore+=.git         " git files
 set wildignore+=*.sw?        " swap files
 
