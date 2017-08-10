@@ -33,6 +33,7 @@ mini:nightly:push:pull:history:bash:ocz:renew:\
 rmdir:\
 vim:vimr:vimR:\
 task:\
+o:\
 testing:dl:dots:code:home:drop:\
 yt:ytd:gs:gc*:\
 log_work:custom:phone*:\
@@ -104,6 +105,7 @@ alias vom='vim'
 alias wim='vim'
 alias cd..='cd ..'
 alias o.='o .'
+alias youtube-dl='youtube-dl.exe'
 
 # change to commonly used directories
 alias home='cd ~'

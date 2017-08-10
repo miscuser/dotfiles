@@ -1,20 +1,18 @@
 #===============================================================================
-# Custom settings based on machine. 
+# Custom aliases dependent on machine-specific settings.
 #===============================================================================
 alias dl='eval cd $download_folder'
 alias docs='eval cd $document_folder'
 alias code='eval cd $code_folder'
 alias testing='eval cd $testing_folder'
 alias drop='eval cd $dropbox_folder'
+alias dropo='eval o $dropbox_folder'
 alias task='$task_command'
 alias log_work='eval vim $worklog'
 
 # Youtube
 alias yto='eval o $youtube_folder'
 alias ytd='eval cd $youtube_folder'
-alias yte='eval vim $dropbox_folder/youtube.txt'
-alias ytdl='eval youtube-dl --batch-file=$dropbox_folder/youtube.txt'
-alias ytmp3='eval mp3 --batch-file=$dropbox_folder/youtube.txt'
 
 #-------------------------------------------------------------------------------
 # Work laptop.

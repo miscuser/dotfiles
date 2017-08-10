@@ -121,6 +121,10 @@ nnoremap <A-right> :vertical resize +5<CR> " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
 
+"-- Make changes tabs easier.
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%200v.\+/
@@ -179,7 +183,6 @@ set sidescroll=1        " number of cols to scroll at a time
 
 "-- Misc. mappings
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>     " strip whitespace from the end of lines
-nmap <leader>p :set paste!<CR>                       " toggle paste mode
 nmap <leader>z z=                                    " show suggested spelling
 map <leader>i :set list!<CR>                         " toggle listchars on/off
 map <leader>e :edit!<CR>                             " reload current file
@@ -191,7 +194,13 @@ nmap t <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_startofline = 0
+<<<<<<< HEAD
 
+=======
+" change the default search to easymotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+>>>>>>> 79feaeab3967e972e5f6e1c7de42e9197563aa0e
 "-- Search for current word under cursor.
 map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
 
