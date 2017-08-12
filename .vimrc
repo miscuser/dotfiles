@@ -18,7 +18,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'         " Let Vundle manage Vundle
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
@@ -56,12 +55,11 @@ autocmd BufEnter * lcd %:p:h  " set current working directory to current buffer 
 syntax on                     " syntax coloring
 
 "-- Searching
-set gdefault                  " apply substitutions globally by default - add `g` for old behavior
 set hlsearch                  " highlight search results
 set incsearch                 " use incremental search
 set ignorecase                " ignore case by default in search
 set smartcase                 " smart case search (insensitive if all lowercase; sensitive otherwise)
-nmap <silent> <leader>/ :nohlsearch<CR>  " clear highlighted search results
+nmap <silent> <leader>/ :nohlsearch<CR>
 nmap s <Plug>(easymotion-s)
 nmap t <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
@@ -72,6 +70,12 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 " Search for current word under cursor.
 map <Leader>* :execute "vimgrep /\\<" . expand("<cword>") . "\\>/g **" <bar> cw <cr>
+" go to line
+map <Leader>g <Plug>(easymotion-bd-jk)
+nmap <Leader>g <Plug>(easymotion-overwin-line)
+" go to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "-- Replace current visual selection. Uses register 'o'.
 vnoremap <C-r> "oy:%s/<C-r>o//<left>
@@ -103,8 +107,8 @@ autocmd BufEnter *.txt colorscheme murphy
 noremap  <leader>be :enew<CR>
 
 " -- Quixfix window
-noremap <C-PageDown> :cnext<CR>
-noremap <C-PageUp> :cprev<CR>
+" noremap <C-PageDown> :cnext<CR>
+" noremap <C-PageUp> :cprev<CR>
 
 "-- Split screens
 set splitright                             " opens new splits to the right
@@ -112,14 +116,14 @@ nnoremap <C-h> <C-w>h                      " move left between splits
 nnoremap <C-j> <C-w>j                      " move down between splits
 nnoremap <C-k> <C-w>k                      " move up between splits
 nnoremap <C-l> <C-w>l                      " move right between splits
-nnoremap <A-left> :vertical resize -5<CR>  " decrease width
-nnoremap <A-right> :vertical resize +5<CR> " increase width
+nnoremap <A-down> :vertical resize -5<CR>  " decrease width
+nnoremap <A-up> :vertical resize +5<CR>    " increase width
 nnoremap <leader>v :vnew<CR><C-w>l         " open vertical split and switch to it
 nnoremap <leader>h :new<CR><C-w>k          " open horizontal split and switch to it
 
 "-- Make changing tabs easier.
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-PageUp> :tabprevious<CR>
+nnoremap <C-PageDown> :tabnext<CR>
 
 "-- Copy, highlight, and navigation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -179,6 +183,12 @@ nmap <leader>z z=                                    " show suggested spelling
 map <leader>i :set list!<CR>                         " toggle listchars on/off
 map <leader>e :edit!<CR>                             " reload current file
 xnoremap p pgvy
+map <leader>f :Lexplore .<CR>                         " open file explorer
+map <leader>F :Lexplore<CR>
+
+"-- Macros
+" repeat macro saved in 'q'
+nnoremap <leader>m @q
 
 "-- Function keys
 map <F1> <ESC>
@@ -191,7 +201,7 @@ set pastetoggle=<F12>
 "-- CtrlP settings
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlP
-nmap <leader>r :CtrlPBuffer<CR>
+nmap <leader><space> :CtrlPBuffer<CR>
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
