@@ -110,10 +110,6 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
-" -- Quixfix window
-" noremap <C-PageDown> :cnext<CR>
-" noremap <C-PageUp> :cprev<CR>
-
 "-- Split screens
 set splitright                             " opens new splits to the right
 nnoremap <C-h> <C-w>h                      " move left between splits
