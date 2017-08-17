@@ -105,10 +105,10 @@ autocmd BufEnter *.txt colorscheme murphy
 
 "-- Buffers
 noremap  <leader>be :enew<CR>
-
-" -- Quixfix window
-" noremap <C-PageDown> :cnext<CR>
-" noremap <C-PageUp> :cprev<CR>
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
 "-- Split screens
 set splitright                             " opens new splits to the right
