@@ -1,7 +1,7 @@
 # Misc's bash configuration
 
 #===============================================================================
-#  Common settings. 
+#  Common settings.
 #===============================================================================
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
@@ -11,9 +11,14 @@ if [ -f "${HOME}/dotfiles/.bash_machines" ] ; then
     source "${HOME}/dotfiles/.bash_machines"
 fi
 
-# Load custom functions. 
+# Load custom functions.
 if [ -f "${HOME}/dotfiles/.bash_functions" ] ; then
     source "${HOME}/dotfiles/.bash_functions"
+fi
+
+# Load custom functions.
+if [ -f "${HOME}/dotfiles/.whip_aliases" ] ; then
+    source "${HOME}/dotfiles/.whip_aliases"
 fi
 
 export EDITOR=vim
@@ -29,7 +34,7 @@ IGNOREEOF=2                         # shell exists after 2nd consecutive Ctrl-d
 #===============================================================================
 #  Ignore some of the short commands I use frequently.
 export HISTIGNORE="&:exit:\
-mini:nightly:push:pull:history:bash:ocz:renew:\
+nightly:push:pull:history:bash:ocz:renew:\
 rmdir:\
 vim:vimr:vimR:\
 task:\
@@ -69,7 +74,6 @@ alias thor='ls -thor'
 alias grep='grep --color'
 alias histoff='set +o history'
 alias histon='set -o history'
-alias thumbs='sudo rm -rf ~/.cache/thumbnails/*'
 
 # alias functions and scripts
 alias mdcd='mkdircd'
@@ -83,22 +87,13 @@ alias trash='mv -t ~/.trash --backup=t'
 alias vimr='vim -M'
 alias vimR='vim -R'
 
-# general computer
-alias bye='sudo shutdown -h now'
-
-# restart minidlna to reindex
-alias mini='sudo service minidlna force-reload'
-
-# apt-get
-alias update='sudo apt-get update && sudo apt-get upgrade'
-alias upgrade='sudo apt-get upgrade'
-alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
-
 # make directory traversal easier
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+shopt -s autocd
+complete -d cd
 
 # common typos
 alias vom='vim'
