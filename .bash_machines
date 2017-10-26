@@ -20,6 +20,7 @@ alias ytd='eval cd $youtube_folder'
 if [[ $(hostname) =~ XLAPTOP ]] ; then
     # commands
     task_command='open taskschd.msc'
+
     # folders
     code_folder=''
     testing_folder='/cygdrive/c/testing'
@@ -28,8 +29,7 @@ if [[ $(hostname) =~ XLAPTOP ]] ; then
     youtube_folder=''
     dropbox_folder=''
     worklog='$HOME/done.txt'
-    # functions
-    ip() { hostname -i | awk '{print $4}'; }
+
     # additional customizations
     alias safe='cd /cygdrive/c/Safety'
 fi
@@ -38,8 +38,16 @@ fi
 # Home - tower - Linux.
 #-------------------------------------------------------------------------------
 if [[ $(hostname) =~ dungeon ]] ; then
+    # aliases
+    alias thumbs='sudo rm -rf ~/.cache/thumbnails/*'
+    alias bye='sudo shutdown -h now'
+    alias update='sudo apt-get update && sudo apt-get upgrade'
+    alias upgrade='sudo apt-get upgrade'
+    alias clean='sudo apt-get autoclean && sudo apt-get autoremove'
+
     # commands
     task_command=''
+
     # folders
     code_folder=''
     testing_folder=''
@@ -47,8 +55,6 @@ if [[ $(hostname) =~ dungeon ]] ; then
     document_folder='$HOME/Documents'
     youtube_folder='$HOME/Downloads/youtube'
     dropbox_folder='$HOME/Dropbox'
-    # functions
-    ip() { hostname -i | awk '{print $4}'; }
 fi
 
 #-------------------------------------------------------------------------------
@@ -57,6 +63,7 @@ fi
 if [[ $(hostname) =~ Kramer ]] ; then
     # commands
     task_command='open taskschd.msc'
+
     # folders
     code_folder=''
     testing_folder='/cygdrive/c/testing'
@@ -64,6 +71,4 @@ if [[ $(hostname) =~ Kramer ]] ; then
     document_folder=''
     youtube_folder='/cygdrive/c/dl/youtube'
     dropbox_folder='/cygdrive/c/Dropbox'
-    # functions
-    ip() { hostname -i | awk '{print $4}'; }
 fi
