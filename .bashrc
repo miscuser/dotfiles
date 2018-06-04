@@ -92,7 +92,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-shopt -s autocd
+# shopt -s autocd
 complete -d cd
 
 # common typos
@@ -105,6 +105,7 @@ alias youtube-dl='youtube-dl.exe'
 # change to commonly used directories
 alias home='cd ~'
 alias dots='cd ~/dotfiles'
+alias dl='cd ~/Downloads'
 
 # git
 alias gc='git commit -m'
