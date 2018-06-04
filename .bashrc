@@ -62,7 +62,7 @@ bind TAB:menu-complete
 #  Aliases
 #===============================================================================
 # general file listing
-alias ls='ls --color'
+alias ls='ls -G'
 alias lt='ls -ltr'
 alias lf="ls -l | egrep -v '^d'"
 alias ldir="ls -l | egrep '^d'"
