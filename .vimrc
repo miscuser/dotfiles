@@ -18,11 +18,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'         " Let Vundle manage Vundle
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
 call vundle#end()                  " required
 filetype plugin indent on          " required
 
@@ -133,11 +130,6 @@ match OverLength /\%200v.\+/
 set termencoding=utf-8
 set encoding=utf-8
 
-"-- Pandoc and markdown
-au BufRead,BufNewFile,BufEnter *.md,*.markdown set filetype=markdown  " set filetypes
-command PDF ! pandoc -V geometry:margin=1in % -o %:r.pdf
-map <silent> <leader>mp :PDF<CR>
-
 "-- Open common files
 map <silent> <leader>ev :e $MYVIMRC<CR>                       " vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>                     " source vimrc
@@ -183,7 +175,7 @@ nmap <leader>z z=                                    " show suggested spelling
 map <leader>i :set list!<CR>                         " toggle listchars on/off
 map <leader>e :edit!<CR>                             " reload current file
 xnoremap p pgvy
-map <leader>f :Lexplore .<CR>                         " open file explorer
+map <leader>f :Lexplore .<CR>                        " open file explorer
 map <leader>F :Lexplore<CR>
 
 "-- Macros
@@ -209,12 +201,6 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 
-"-- Silver Searcher settings (ack and ctrlp)
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
 "-- Command line completion
 set wildmenu                 " navigate <left> & <right> through completion lists
 set wildmode=full            " complete first full match, next match (default)
@@ -228,10 +214,3 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
-
-"-- NerdCommenter settings
-let NERDSpaceDelims=1
-
-"-- Jedi settings
-let g:jedi#popup_on_dot = 0
-autocmd FileType python setlocal completeopt-=preview
