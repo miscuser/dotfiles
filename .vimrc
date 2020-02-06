@@ -13,6 +13,5 @@ let mapleader=","
 syntax on
 nnoremap <leader>m @q
 map <F1> :set relativenumber!<CR>
-autocmd BufEnter *     colorscheme badwolf
-autocmd BufEnter *.txt colorscheme murphy
-"nnoremap ; :
+"autocmd BufEnter *     colorscheme badwolf
+"autocmd BufEnter *.txt colorscheme murphy
